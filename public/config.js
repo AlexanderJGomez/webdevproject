@@ -20,12 +20,12 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
-            .when("/user/:userId", {
+            .when("/profile", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model"
             })
-            .when("#/user/:userId/item", {
+            .when("/user/:userId/item", {
                 templateUrl: "views/item/item-list.view.client.html",
                 controller: "ItemListController",
                 controllerAs: "model"

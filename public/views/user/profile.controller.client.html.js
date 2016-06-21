@@ -15,7 +15,7 @@
         var index = -1;
 
         function init() {
-            vm.user = $rootScope.currentUser;
+            //vm.user = $rootScope.currentUser;
             // UserService
             //     .findUserById(id)
             //     .then(function(response) {
@@ -55,12 +55,12 @@
             UserService
                 .logout()
                 .then(
-                    function() { //if successful or unsuccessful, nav to login page
-                        $rootScope.currentUser = null; //user we were caching is no longer valid.
+                    function() {
+                        // $rootScope.currentUser = null; //user we were caching is no longer valid.
                         $location.url("/login");
                     },
                     function() {
-                        $rootScope.currentUser = null; //user we were caching is no longer valid.
+                        // $rootScope.currentUser = null; //user we were caching is no longer valid.
                         $location.url("/login");
                     }
                 );
