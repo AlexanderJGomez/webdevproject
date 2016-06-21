@@ -20,31 +20,37 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
-            .when("/user/:userId", {
-                templateUrl: "views/user/profile.view.client.html",
-                controller: "ProfileController",
-                controllerAs: "model"
-            })
-            .when("#/user/:userId/item", {
-                templateUrl: "views/item/item-list.view.client.html",
-                controller: "ItemListController",
-                controllerAs: "model"
-            })
-            /*
-            .when("/user", { // from the fb stuff. could use this for other things to visit other peoples' profile. if you have the id, visit other person's profile- dont need to be logged in. if you dont have id goto own profile
+            .when("/profile", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
-                resolve: { loggedin: checkLoggedin } //conditions by which you will be allowed to go to this page
+                resolve: { loggedin: checkLoggedIn }
             })
-            .when("/user/:userId", { //want to protect this page.
-                templateUrl: "views/user/profile.view.client.html",
-                controller: "ProfileController",
-                controllerAs: "model",
-                resolve: { loggedin: checkLoggedin } //conditions by which you will be allowed to go to this page
-            })*/
             .otherwise({
                 redirectTo: "/home"
             });
+
+        function checkLoggedIn(UserService, $q, $location, $rootScope) {
+            var deferred = $q.defer();
+            UserService
+                .checkLoggedIn()
+                .then(function(response) {
+                        var user = response.data;
+                        if(user == '0') {
+                            deferred.reject()
+                            $location.url("/login")
+                        }
+                        else {
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                    },
+                    function(err) {
+                        console.log(err);
+                        deferred.reject();
+                    })
+
+            deferred.promise;
+        }
     }
 })();
