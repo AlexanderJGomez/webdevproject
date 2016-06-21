@@ -1,0 +1,70 @@
+input {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
+.btn {
+    margin-bottom: 5px;
+}
+
+.navbar-inverse .navbar-brand {
+    font-color: white;
+}
+
+.navbar-inverse {
+    background-color: black;
+    opacity: .8
+}
+
+.navbar-inverse .navbar-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-nav>li>a {
+    color: white;
+}
+
+#google {
+    background-color: salmon;
+    border-color: salmon;
+}
+
+h2, h5{
+    text-align: center;
+}
+
+#help {
+    position: relative;
+    vertical-align: middle;
+    color: white;
+}
+
+#image {
+    position: absolute;
+    width: 100%;
+    opacity: .85;
+    left: 0;
+    top: 0;
+}
+
+#tagline {
+    margin-top: 200px;
+    position: relative;
+    vertical-align: middle;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p.navbar-text.pull-right {
+    margin-right: 6px;
+}
+
+p.navbar-text.pull-left {
+    margin-left: 6px;
+}

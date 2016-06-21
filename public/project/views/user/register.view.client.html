@@ -1,0 +1,37 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
+    <div class="container-fluid">
+        <p class="navbar-text pull-left">
+            <a href="#/home" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+            </a>
+        </p>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                THRIFTY
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div ng-if="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<h2>Register</h2>
+<input ng-model="model.user.username"
+       class="form-control"
+       placeholder="username"
+       type="text"/>
+<input ng-model="model.user.password"
+       class="form-control"
+       placeholder="password"
+       type="password"/>
+<input ng-model="model.user.password2"
+       class="form-control"
+       placeholder="verify password"
+       type="password"/>
+<a ng-click="model.register(model.user)"
+   class="btn btn-primary btn-block">Register</a>
+<a class="btn btn-danger btn-block"
+   href="#/login">Cancel</a>

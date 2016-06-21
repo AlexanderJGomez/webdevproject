@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
+    <div class="container-fluid">
+        <p class="navbar-text pull-left">
+            <a href="#/home" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+            </a>
+        </p>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                THRIFTY
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div ng-if="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<h2>Login</h2>
+<input ng-model="username"
+       class="form-control"
+       placeholder="username"
+       type="text"/>
+<input ng-model="password"
+       class="form-control"
+       placeholder="password"
+       type="password">
+
+<a ng-click="model.login(username, password)"
+   class="btn btn-primary btn-block">Login</a>
+
+<a class="btn btn-primary btn-block"
+   href="#/register">Register</a>
+
+<a href="/auth/google" id="google" class="btn btn-primary btn-block">
+    <span class="fa fa-google-plus"></span>
+    Google</a>

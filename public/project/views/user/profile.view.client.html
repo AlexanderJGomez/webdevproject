@@ -1,0 +1,58 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a ng-model="model.updateUser()" class="navbar-link">
+                Update
+            </a>
+        </p>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                Profile
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div ng-if="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input ng-model="model.user.username"
+               type="text"
+               class="form-control"
+               id="username"
+               placeholder="awonderland65">
+    </div>
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input ng-model="model.user.email"
+               type="email"
+               class="form-control"
+               id="email"
+               placeholder="alice@wonderland.com">
+    </div>
+    <div class="form-group">
+        <label for="first">First Name</label>
+        <input ng-model="model.user.firstName"
+               type="text"
+               class="form-control"
+               id="first"
+               placeholder="Alice">
+    </div>
+    <div class="form-group">
+        <label for="last">Last Name</label>
+        <input ng-model="model.user.lastName"
+               type="text"
+               class="form-control"
+               id="last"
+               placeholder="Wonderland">
+    </div>
+</form>
+
+<a class="btn btn-primary btn-block"
+   href="#/user/{{model.user._id}}/item">My Listings</a>
+<a ng-click="model.logout()" class="btn btn-danger btn-block">Logout</a>
+<a ng-click="model.unregister()" class="btn btn-danger btn-block">Unregister</a>
