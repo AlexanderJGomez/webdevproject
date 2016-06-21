@@ -1,12 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a class="navbar-link">
+            <a href="#/profile/listings" class="navbar-link">
                 My Listings
             </a>
-            <!--<#/user/{{model.user._id}}/item = class="navbar-link">-->
-                <!--Update-->
-            <!--</a>-->
         </p>
         <div class="navbar-header">
             <a class="navbar-brand" href="#/home">
@@ -29,7 +26,6 @@
                id="username"
                placeholder="awonderland65">
     </div>
-    {{model}}
     <div class="form-group">
         <label for="email">Email address</label>
         <input ng-model="model.user.email"
