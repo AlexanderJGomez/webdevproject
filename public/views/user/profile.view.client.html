@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <p class="navbar-text pull-right">
             <a class="navbar-link">
-                Update
+                My Listings
             </a>
-            <!--<a ng-model="model.updateUser()" class="navbar-link">-->
+            <!--<#/user/{{model.user._id}}/item = class="navbar-link">-->
                 <!--Update-->
             <!--</a>-->
         </p>
@@ -29,6 +29,7 @@
                id="username"
                placeholder="awonderland65">
     </div>
+    {{model}}
     <div class="form-group">
         <label for="email">Email address</label>
         <input ng-model="model.user.email"
@@ -56,6 +57,7 @@
 </form>
 
 <a class="btn btn-primary btn-block"
-   href="#/user/{{model.user._id}}/item">My Listings</a>
+   href="">Update</a>
+<!--<"ng-click=model.updateUser()"-->
 <a ng-click="model.logout()" class="btn btn-danger btn-block">Logout</a>
 <a ng-click="model.unregister()" class="btn btn-danger btn-block">Unregister</a>

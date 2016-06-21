@@ -14,6 +14,7 @@ module.exports = function(app, models) {
     app.post("/api/login", passport.authenticate('wam'), login);
     app.post('/api/logout', logout);
     app.get ('/api/loggedin', loggedin);
+    //app.delete
 
     passport.use('wam', new LocalStrategy(localStrategy));
     // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -77,24 +78,20 @@ module.exports = function(app, models) {
             },
             function(err) {
                 res.status(409).send(err);
-            })
+            });
     }
 
     function login(req, res) {
         console.log("userservice server");
-
-        //console.log(req);
         console.log(req.body);
 
-        // passport
         var user = req.user;
         res.json(user);
-        // var user = req.body;
     }
 
     function logout(req, res) {
         console.log('Logged out');
-        req.logOut();
+        req.logout();
         res.send(200);
     }
 
@@ -108,12 +105,12 @@ module.exports = function(app, models) {
         userModel.findUserByUsername(username)
             .then(function(user) {
                 if(user.length) {
-                    res.status(400).send("Username already exists")
+                    res.status(400).send("Username already exists");
                     return;
                 }
                 else {
                     password = bcrypt.hashSync(req.body.password);
-                    console.log("In register")
+                    console.log("In register server");
                     console.log(password);
 
                     return userModel.createUser({username: username, password: password});
@@ -130,6 +127,6 @@ module.exports = function(app, models) {
                         }
                     });
                 }
-            })
+            });
     }
 };

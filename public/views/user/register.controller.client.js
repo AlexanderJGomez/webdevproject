@@ -8,10 +8,10 @@
         vm.user = {};
         vm.register = register;
 
-        function register(user) {
+        function register(username, password) {
 
             UserService
-                .register(user.username, user.password)
+                .register(username, password)
                 .then(
                     function(response) {
                         var user = response.data;

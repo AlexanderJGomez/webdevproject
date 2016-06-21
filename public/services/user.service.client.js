@@ -11,7 +11,7 @@
         var api = {
             createUser: createUser,
             checkLoggedIn: checkLoggedIn,
-            logOut: logOut,
+            logout: logout,
             register: register,
             login: login,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
@@ -26,7 +26,7 @@
             return $http.put(url, newUser);
         }
 
-        function logOut() {
+        function logout() {
             return $http.post("/api/logout");
         }
 

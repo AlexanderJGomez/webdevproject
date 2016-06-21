@@ -5,7 +5,7 @@
 
     function ProfileController($location, $rootScope, $routeParams, UserService) {
         var vm = this;
-        var id = $routeParams["userId"];
+        // var id = $routeParams["userId"];
 
         vm.updateUser = updateUser;
         vm.unregister = unregister;
@@ -15,18 +15,14 @@
         var index = -1;
 
         function init() {
-            //vm.user = $rootScope.currentUser;
-            // UserService
-            //     .findUserById(id)
-            //     .then(function(response) {
-            //         vm.user = response.data;
-            //     });
+            vm.user = $rootScope.currentUser;
         }
         init();
 
         function unregister() {
+            console.log(vm.user._id);
             UserService
-                .deleteUser(id)
+                .deleteUser(vm.user._id)
                 .then(
                     function(response) {
                         $location.url("/login");
@@ -40,7 +36,7 @@
         //'update' invokes put request. to userservice
         function updateUser() {
             UserService
-                .updateUser(id, vm.user)
+                .updateUser(vm.user._id, vm.user)
                 .then(
                     function(response) {
                         vm.success = "User successfully updated";
@@ -56,12 +52,12 @@
                 .logout()
                 .then(
                     function() {
-                        // $rootScope.currentUser = null; //user we were caching is no longer valid.
-                        $location.url("/login");
+                        $rootScope.currentUser = null;
+                        $location.url("/home");
                     },
                     function() {
-                        // $rootScope.currentUser = null; //user we were caching is no longer valid.
-                        $location.url("/login");
+                        $rootScope.currentUser = null;
+                        $location.url("/home");
                     }
                 );
         }
