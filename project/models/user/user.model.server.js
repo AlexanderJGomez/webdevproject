@@ -3,13 +3,14 @@ module.exports = function() {
     var mongoose = require("mongoose");
     
     var UserSchema = require("./user.schema.server.js")();
-    var User = mongoose.model("ProjectUser", UserSchema);
+    var User = mongoose.model("User", UserSchema);
 
     var api = {
         createUser: createUser,
         findUserById: findUserById,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
+        getUsers: getUsers,
         updateUser: updateUser,
         deleteUser: deleteUser
     };
@@ -17,8 +18,11 @@ module.exports = function() {
 
     
     function createUser(user) {
-        console.log("inside model");
         return User.create(user);
+    }
+
+    function getUsers() {
+        return User.find({});
     }
 
     function findUserById(userId) {
