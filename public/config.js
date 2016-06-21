@@ -26,6 +26,12 @@
                 controllerAs: "model",
                 resolve: { loggedin: checkLoggedIn }
             })
+            .when("/profile/listings", {
+                templateUrl: "views/item/item-list.view.client.html",
+                controller: "ItemListController",
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedIn }
+            })
             .otherwise({
                 redirectTo: "/home"
             });
