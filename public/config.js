@@ -23,17 +23,6 @@
             .when("/profile", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
-                controllerAs: "model"
-            })
-            .when("/user/:userId/item", {
-                templateUrl: "views/item/item-list.view.client.html",
-                controller: "ItemListController",
-                controllerAs: "model"
-            })
-            /*
-            .when("/user", { // from the fb stuff. could use this for other things to visit other peoples' profile. if you have the id, visit other person's profile- dont need to be logged in. if you dont have id goto own profile
-                templateUrl: "views/user/profile.view.client.html",
-                controller: "ProfileController",
                 controllerAs: "model",
                 resolve: { loggedin: checkLoggedIn }
             })
@@ -62,6 +51,6 @@
                     })
 
             deferred.promise;
-        }*/
+        }
     }
 })();
