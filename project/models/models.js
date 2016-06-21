@@ -11,9 +11,8 @@ module.exports = function() {
     }
 
     var mongoose = require("mongoose");
-    mongoose.createConnection(connectionString);
+    mongoose.connect(connectionString);
 
-    //Connecting to the .model.server.js, returns an API that has all the CRUD functions.
     var userModel = require("./user/user.model.server.js")();
     // var itemModel = require("./item/item.model.server.js")();
     // var purchaseModel = require("./purchase/purchase.model.server.js")();

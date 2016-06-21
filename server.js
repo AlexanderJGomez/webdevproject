@@ -18,22 +18,18 @@ app.use(session({
     saveUninitialized: true}));
 
 //passport initialization. base library
-//use session i've already initialized to store any info in cookie
-app.use(passport.initialize());
-app.use(passport.session());  //ask passport to remember using the session secret that was already created.
+//app.use(passport.initialize());
+//app.use(passport.session());
+//ask passport to remember using the session secret that was already created.
 
 // configure a public directory to host static content
 app.use(express.static(__dirname + '/public'));
 
 
-//added in class
-//var assignment = require('./assignment/app.js')/*(app)*/;
-//assignment(app);//bound to function in assignment/app.js
 
 var project = require('./project/app.js');
 project(app);
 
-//require ("./test/app.js")(app);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 3030;//3000

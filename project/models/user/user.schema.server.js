@@ -12,10 +12,9 @@ module.exports = function() {
         firstName: String,
         lastName: String,
         google: {
-            // google shit
         },
         email: String,
-        items: [{type: mongoose.Schema.Types.ObjectId, ref: "Item"}],
+        //items: [{type: mongoose.Schema.Types.ObjectId, ref: "Item"}],
         dateCreated: {type: Date, default: Date.now}
     }, {collection: "project.user"});
 
