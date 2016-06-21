@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
-
+<html lang="en" ng-app="Thrifty">
 <head>
-    <meta charset="UTF-8">
+    <title>Thrifty</title>
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <title>Web Dev Course Home Page</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/jquery-ui.css" rel="stylesheet"/>
+
+    <!--script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.ui.touch-punch.js"></script-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <script src="views/home.controller.client.js"></script>
+    <script src="views/user/login.controller.client.js"></script>
+    <script src="views/user/register.controller.client.js"></script>
+    <script src="views/user/profile.controller.client.html.js"></script>
+
+
+    <script src="services/user.service.client.js"></script>
+
 </head>
-<body>
-    <h2>Web Dev Course Home Page</h2>
-    <h3>Michael Rascati</h3>
-
-    <p>
-        rascati.m@husky.neu.edu
-    </p>
-
-    <img src="images/huskyidphoto.jpg" style="width:130px;height:130px;">
-
-    <h4>Required links</h4>
-    <ul>
-        <li>
-            <a href="project/#/home">Project</a>
-        </li>
-        <li>
-            <a href="assignment/#/login">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/rascati/rascati-michael-web-dev">My public GitHub repository</a>
-        </li>
-    </ul>
+<body id="page">
+    <div ng-view class="container"></div>
 </body>
 </html>
