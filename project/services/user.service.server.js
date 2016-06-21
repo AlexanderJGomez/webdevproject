@@ -7,16 +7,16 @@ module.exports = function(app, models) {
     var userModel = models.userModel;
     var passport = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
-    var bcrypt = require('bcrypt');
+    var bcrypt = require('bcrypt-nodejs');
 
     app.post("/api/register", register);
     app.get("/api/user", getUsers);
-    app.post("/api/login", passport.authenticate('wam'), login)
+    app.post("/api/login", passport.authenticate('wam'), login);
     app.post('/api/logout', logout);
     app.get ('/api/loggedin', loggedin);
 
     passport.use('wam', new LocalStrategy(localStrategy));
-    passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+    // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
@@ -51,6 +51,7 @@ module.exports = function(app, models) {
     }
 
     function localStrategy(username, password, done) {
+        console.log("localstrat");
         userModel
             .findUserByUsername(username)
             .then(
@@ -68,8 +69,7 @@ module.exports = function(app, models) {
             );
     }
     
-
-
+    
     function getUsers(req, res) {
         userModel.getUsers()
             .then(function(users) {
@@ -81,8 +81,15 @@ module.exports = function(app, models) {
     }
 
     function login(req, res) {
+        console.log("userservice server");
+
+        //console.log(req);
+        console.log(req.body);
+
+        // passport
         var user = req.user;
         res.json(user);
+        // var user = req.body;
     }
 
     function logout(req, res) {
@@ -125,7 +132,4 @@ module.exports = function(app, models) {
                 }
             })
     }
-    
-    
-
 };

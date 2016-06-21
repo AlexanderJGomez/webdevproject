@@ -3,34 +3,32 @@
         .module("Thrifty")
         .controller("LoginController", LoginController);
 
-    //UserService needs to be injected. doesn't exist yet
     function LoginController($location, $rootScope, UserService) {
         var vm = this;
 
         vm.login = login;
 
         function login(username, password) {
-            
-            // new with Login
+
             UserService
                 .login(username, password)
                 .then(
                     function(response) {
                         var user = response.data;
-
+                        console.log("login controller");
+                        console.log(user);
                         if (user) {
-                            $rootScope.currentUser = user; //
+                            $rootScope.currentUser = user;
                             var id = user._id;
-                            $location.url("/user/" + id);
-                        } else { // hopefully a temporary fix
+                            // console.log(user);
+                            $location.url("/profile");
+                        } else {
                             vm.error = "User not found";
-
                         }
-                    },// UserService never responds with an error, always going into the function(response) above
+                    },
                     function(error) {
                         vm.error = "User not found";
                     }
-
                 );
         }
     }

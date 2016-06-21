@@ -36,17 +36,20 @@
                 password: password
             }
 
+            //console.log(user);
             return $http.post("/api/login", user);
         }
 
         function checkLoggedIn() {
+            // console.log("userservice client");
             return $http.get("/api/loggedin")
         }
 
 
         function register(username, password) {
-            console.log("In register")
+            console.log("In register");
             var url = "/api/register";
+            
             var user = {
                 username: username,
                 password: password
