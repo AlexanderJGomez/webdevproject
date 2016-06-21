@@ -7,54 +7,43 @@ module.exports = function() {
 
     var api = {
         createUser: createUser,
-        findUserById: findUserById,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
-        getUsers: getUsers,
-        updateUser: updateUser,
-        deleteUser: deleteUser
+        findUserById: findUserById,
+        deleteUser: deleteUser,
+        updateUser: updateUser
     };
+
     return api;
 
-    
+    function findUserById(id) {
+        return User.findById(id);
+    }
+
     function createUser(user) {
         return User.create(user);
     }
 
-    function getUsers() {
-        return User.find({});
-    }
-
-    function findUserById(userId) {
-        return User.findById(userId);
-    }
-
     function findUserByUsername(username) {
-        return User.findOne({username: username});
+        return User.find({username: username});
     }
 
-    //Retrieves a user instance whose username and password are equal to parameters userId and password
     function findUserByCredentials(username, password) {
-        return User.findOne({username: username, password: password});
+        var pass = bcrypt.hashSync(password);
+        return User.find({username:username, password:pass});
     }
 
-    //Updates user instance whose _id is equal to parameter userId
-    //sets first instance of _id's firstName and lastName field to the browser param user.firstName/lastName
-    function updateUser(userId, user) {
-        return User.update(
-            {_id: userId},
-            {$set:
-                {
-                    email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                }
-            }
-        );
-    }
 
-    //Removes user instance whose _id is equal to parameter userId
-    function deleteUser(userId) {
-        return User.remove({_id: userId});
+    function deleteUser(id) {
+        //delete user._id;
+        return User.findByIdAndRemove(id);
+    }
+    
+
+
+    function updateUser(id, newUser) {
+        console.log(newUser);
+        delete newUser._id;
+        return User.findByIdAndUpdate(id, newUser);
     }
 };

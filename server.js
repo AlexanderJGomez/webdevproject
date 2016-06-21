@@ -18,8 +18,8 @@ app.use(session({
     saveUninitialized: true}));
 
 //passport initialization. base library
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 //ask passport to remember using the session secret that was already created.
 
 // configure a public directory to host static content
