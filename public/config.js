@@ -37,8 +37,8 @@
                 .then(function(response) {
                         var user = response.data;
                         if(user == '0') {
-                            deferred.reject()
-                            $location.url("/login")
+                            deferred.reject();
+                            $location.url("/home");
                         }
                         else {
                             $rootScope.currentUser = user;
