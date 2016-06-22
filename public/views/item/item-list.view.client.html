@@ -18,9 +18,43 @@
 </div>
 
 <ul class="list-group">
+    <!--<div ng-repeat="item in model.items"-->
+         <!--ng-switch="item">-->
+        <!--<div ng-switch-when="item">-->
+            <!--<li class="list-group-item">-->
+                <!--<a href="#/item/{{item._id}}">-->
+                    <!--{{item.name}}-->
+                <!--</a>-->
+            <!--</li>-->
+        <!--</div>-->
+        <!--<div ng-switch-default>-->
+            <!--You are not selling any items, click New to add a new listing-->
+        <!--</div>-->
+
+    <!--</div>-->
+
     <li ng-repeat="item in model.items" class="list-group-item">
         <a href="#/item/{{item._id}}">
             {{item.name}}
         </a>
     </li>
+
+
+    <div id="container">
+        <br>
+        <h4 ng-show="model.emptyItems">
+            You are not selling any items,
+            click New to add a new listing!
+        </h4>
+    </div>
+
 </ul>
+<!--<ul class="list-group">-->
+    <!--<li ng-repeat="item in model.items" class="list-group-item">-->
+        <!--<a href="#/item/{{item._id}}">-->
+            <!--{{item.name}}-->
+        <!--</a>-->
+    <!--</li>-->
+    <!---->
+<!--</ul>-->
+

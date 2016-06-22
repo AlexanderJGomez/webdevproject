@@ -30,11 +30,11 @@ body {
     /*color: white;*/
 /*}*/
 
-.navbar-inverse .navbar-brand:hover, .navbar-brand:focus, .navbar-link:hover, .navbar-link:focus {
+.navbar-inverse .navbar-brand:hover, .navbar-brand:focus, .navbar-link:hover, .navbar-link:focus, .mybutton:focus {
     color: white !important;
+    text-decoration: none;
     /*color: rgba(31, 230, 170, 0.8) !important;*/
 }
-
 
 .mybutton, button {
     text-align: center;
@@ -44,8 +44,8 @@ body {
     padding-left: 2px;
     padding-right: 2px;
     transition: border-color .2s ease-in-out;
-    border-bottom: .4px solid rgba(0,0,0,0);
-    padding-bottom: 2px;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    padding-bottom: 3px;
 }
 
 .mybutton:hover, button:hover {
@@ -55,14 +55,12 @@ body {
     /*transition: border-color .15s ease-out;*/
 }
 
-
-
 #google {
     background-color: salmon;
     border-color: salmon;
 }
 
-h2, h5{
+h2, h4, h5{
     text-align: center;
 }
 
@@ -96,3 +94,32 @@ p.navbar-text.pull-right {
 p.navbar-text.pull-left {
     margin-left: 6px;
 }
+
+#username {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+    /*cursor:default;*/
+}
+
+
+/*.breadcrumb>li {  displays breadcrumbs horizonatally on the navbar     */
+/*display: inline-block;*/
+/*}*/
+
+/*#bc {*/
+    /*background: none;*/
+    /*padding-top: 19px;*/
+    /*margin-left: -6px;*/
+    /*font-size: 12pt;*/
+    /*text-decoration: none !important;*/
+/*}*/
+
+/*#bread {*/
+/*}*/
+
+/*.breadcrumb>.active {*/
+    /*color: #f6f6f6;*/
+/*}*/
+/*.breadcrumb>li:hover {*/
+    /*color: white !important;*/
+/*}*/

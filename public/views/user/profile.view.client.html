@@ -10,6 +10,7 @@
                 Profile
             </a>
         </div>
+
     </div>
 </nav>
 
@@ -23,11 +24,15 @@
 <form>
     <div class="form-group">
         <label for="username">Username</label>
-        <input ng-model="model.user.username"
-               type="text"
-               class="form-control"
-               id="username"
-               placeholder="awonderland65">
+
+        <div class="">
+            <input ng-model="model.user.username"
+                   type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="awonderland65"
+                   disabled/>
+        </div>
     </div>
     <div class="form-group">
         <label for="email">Email address</label>

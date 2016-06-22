@@ -16,6 +16,12 @@
                     console.log("In ILC");
                     vm.items = response.data;
                     console.log(vm.items);
+
+                    // To display help text when users are selling no items (used in view in an ng-show)
+                    if (vm.items.length == 0) {
+                        vm.emptyItems = true;
+                        console.log(vm.emptyItems);
+                    }
                 },
                 function(err) {
                     console.log(err);
