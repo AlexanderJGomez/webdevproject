@@ -32,6 +32,18 @@
                 controllerAs: "model",
                 resolve: { loggedin: checkLoggedIn }
             })
+            .when("/item/new", {
+                templateUrl: "views/item/item-new.view.client.html",
+                controller: "ItemEditController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/item/:itemId", {
+                templateUrl: "views/item/item-edit.view.client.html",
+                controller: "ItemEditController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });
