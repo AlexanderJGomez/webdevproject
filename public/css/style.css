@@ -11,23 +11,51 @@ body {
     margin-bottom: 5px;
 }
 
-.navbar-inverse .navbar-brand {
-    font-color: white;
-}
+/*.navbar-inverse .navbar-brand {*/
+    /*font-color: white;*/
+/*}*/
 
 .navbar-inverse {
     background-color: black;
-    opacity: .8
+    opacity: .8;
+    max-height: 60px;
 }
 
-.navbar-inverse .navbar-link {
-    color: #ffffff;
-    text-decoration: none;
+/*.navbar-inverse .navbar-link {*/
+    /*color: #ffffff;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*.navbar-nav>li>a {*/
+    /*color: white;*/
+/*}*/
+
+.navbar-inverse .navbar-brand:hover, .navbar-brand:focus, .navbar-link:hover, .navbar-link:focus {
+    color: white !important;
+    /*color: rgba(31, 230, 170, 0.8) !important;*/
 }
 
-.navbar-nav>li>a {
+
+.mybutton, button {
+    text-align: center;
     color: white;
+    border: none;
+    background: none;
+    padding-left: 2px;
+    padding-right: 2px;
+    transition: border-color .2s ease-in-out;
+    border-bottom: .4px solid rgba(0,0,0,0);
+    padding-bottom: 2px;
 }
+
+.mybutton:hover, button:hover {
+    color: white;
+    border-color: white;
+    text-decoration: none;
+    /*transition: border-color .15s ease-out;*/
+}
+
+
 
 #google {
     background-color: salmon;
