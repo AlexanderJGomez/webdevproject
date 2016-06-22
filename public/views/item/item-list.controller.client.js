@@ -10,10 +10,12 @@
         var vm = this;
         
         function init() {
-            ItemService.findItemBySeller($rootScope._id)
+            console.log($rootScope.currentUser._id);
+            ItemService.findItemsBySeller($rootScope.currentUser._id)
                 .then(function (response) {
                     console.log("In ILC");
                     vm.items = response.data;
+                    console.log(vm.items);
                 },
                 function(err) {
                     console.log(err);

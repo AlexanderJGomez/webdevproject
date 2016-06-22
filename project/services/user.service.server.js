@@ -1,7 +1,3 @@
-//var passport = require('passport');
-//var LocalStrategy = require('passport-local').Strategy;
-//var FacebookStrategy = require('passport-facebook').Strategy;
-//var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(app, models) {
     var userModel = models.userModel;
@@ -18,7 +14,6 @@ module.exports = function(app, models) {
     app.delete("/api/user/:userId", authenticate, deleteUser);
 
     passport.use('wam', new LocalStrategy(localStrategy));
-    // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 

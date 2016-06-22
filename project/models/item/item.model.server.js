@@ -10,7 +10,7 @@ module.exports = function() {
 
     var api = {
         createItem: createItem,
-        findItemBySeller: findItemBySeller,
+        findItemsBySeller: findItemsBySeller,
         findItemById: findItemById,
         updateItem: updateItem,
         deleteItem: deleteItem
@@ -22,7 +22,7 @@ module.exports = function() {
         return Item.findById(id);
     }
 
-    function findItemBySeller(id) {
+    function findItemsBySeller(id) {
         return Item.find({seller: id});
     }
 
