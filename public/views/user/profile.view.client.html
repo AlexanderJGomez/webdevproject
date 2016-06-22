@@ -16,6 +16,9 @@
 <div ng-if="model.error" class="alert alert-danger">
     {{model.error}}
 </div>
+<div ng-show="model.success" class="alert alert-success">
+    {{model.success}}
+</div>
 
 <form>
     <div class="form-group">
@@ -53,7 +56,6 @@
 </form>
 
 <a class="btn btn-primary btn-block"
-   href="">Update</a>
-<!--<"ng-click=model.updateUser()"-->
+   ng-click="model.updateUser()">Update</a>
 <a ng-click="model.logout()" class="btn btn-danger btn-block">Logout</a>
 <a ng-click="model.unregister()" class="btn btn-danger btn-block">Unregister</a>

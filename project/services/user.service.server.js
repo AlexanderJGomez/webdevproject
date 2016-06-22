@@ -14,7 +14,8 @@ module.exports = function(app, models) {
     app.post("/api/login", passport.authenticate('wam'), login);
     app.post('/api/logout', logout);
     app.get ('/api/loggedin', loggedin);
-    //app.delete
+    app.put("/api/user/:userId", updateUser);
+    app.delete("/api/user/:userId", authenticate, deleteUser);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -23,8 +24,7 @@ module.exports = function(app, models) {
 
 
     function authenticate(req, res, next) {
-        console.log(req.user);
-        console.log(req.isAuthenticated());
+        console.log("authenticate");
         if(req.isAuthenticated()) {
             next();
         } else {
@@ -33,12 +33,12 @@ module.exports = function(app, models) {
     }
 
     function serializeUser(user, done) {
-        console.log("Inside serialize user")
+        console.log("serialize user");
         done(null, user);
     }
 
     function deserializeUser(user, done) {
-        console.log("Inside deserialize user")
+        console.log("deserialize user");
         userModel
             .findUserById(user._id)
             .then(
@@ -52,13 +52,12 @@ module.exports = function(app, models) {
     }
 
     function localStrategy(username, password, done) {
-        console.log("localstrat");
+        console.log("local strategy");
         userModel
             .findUserByUsername(username)
             .then(
                 function(user) {
                     if(user[0] && bcrypt.compareSync(password, user[0].password)) {
-                        console.log("Matched user")
                         return done(null, user[0]);
                     } else {
                         return done(null, false);
@@ -69,8 +68,7 @@ module.exports = function(app, models) {
                 }
             );
     }
-    
-    
+
     function getUsers(req, res) {
         userModel.getUsers()
             .then(function(users) {
@@ -82,15 +80,13 @@ module.exports = function(app, models) {
     }
 
     function login(req, res) {
-        console.log("userservice server");
-        console.log(req.body);
-
+        console.log("logged in");
         var user = req.user;
         res.json(user);
     }
 
     function logout(req, res) {
-        console.log('Logged out');
+        console.log("logged out");
         req.logout();
         res.send(200);
     }
@@ -110,9 +106,7 @@ module.exports = function(app, models) {
                 }
                 else {
                     password = bcrypt.hashSync(req.body.password);
-                    console.log("In register server");
-                    console.log(password);
-
+                    console.log("register inside: User Service Server");
                     return userModel.createUser({username: username, password: password});
                 }
                 res.send(200);
@@ -128,5 +122,45 @@ module.exports = function(app, models) {
                     });
                 }
             });
+    }
+
+    function updateUser(req, res) {
+        console.log("user service server");
+        console.log("params");
+        console.log(req.params);
+        console.log("body");
+        console.log(req.body);
+        console.log("body._id");
+        console.log(req.body._id);
+
+        var id = req.body._id;
+        var newUser = req.body;
+
+        userModel
+            .updateUser(id, newUser)
+            .then(
+                function(user) {
+                    res.send(200);
+                },
+                function(error) {
+                    res.status(404).send("Unable to update user with ID: " + id);
+                }
+            );
+    }
+
+    function deleteUser(req, res) {
+        console.log("delete user");
+        var id = req.params.userId;
+
+        userModel
+            .deleteUser(id)
+            .then(
+                function(status) {
+                    res.send(200);
+                },
+                function(error) {
+                    res.status(404).send("Unable to remove user with ID: " + id);
+                }
+            );
     }
 };

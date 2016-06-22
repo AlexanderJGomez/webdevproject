@@ -22,6 +22,7 @@
         return api;
 
         function updateUser(id, newUser) {
+            console.log("user service client");
             var url = "/api/user/"+id;
             return $http.put(url, newUser);
         }

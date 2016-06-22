@@ -25,16 +25,16 @@
                 .deleteUser(vm.user._id)
                 .then(
                     function(response) {
-                        $location.url("/login");
+                        $location.url("/home");
                     },
                     function(error){
                         vm.error = error.data;
                     }
                 );
         }
-
-        //'update' invokes put request. to userservice
+        
         function updateUser() {
+            console.log("update user");
             UserService
                 .updateUser(vm.user._id, vm.user)
                 .then(

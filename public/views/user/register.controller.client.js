@@ -15,12 +15,10 @@
                 .then(
                     function(response) {
                         var user = response.data;
-                        
                         $location.url("/profile");
-                        console.log(response.data);
                     },
                     function(err) {
-                        console.log(err);
+                        vm.error = err.data;
                     }
                 );
         }
