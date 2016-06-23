@@ -11,6 +11,10 @@ body {
     margin-bottom: 5px;
 }
 
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+
 /*.navbar-inverse .navbar-brand {*/
     /*font-color: white;*/
 /*}*/
@@ -83,7 +87,7 @@ h2, h4, h5{
     position: relative;
     vertical-align: middle;
     color: white;
-    font-size: 30px;
+    font-size: 27px;
     font-weight: bold;
 }
 

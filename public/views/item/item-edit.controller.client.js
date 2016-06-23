@@ -15,15 +15,10 @@
             if(id) {
                 ItemService.findItemById(id)
                     .then(function(response) {
-
                         vm.item = response.data;
-                        console.log("vm.item");
-                        console.log(vm.item);
-                        console.log("vm.item");
                     })
 
             } else {
-                console.log("else");
                 vm.item = {};
             }
         }
