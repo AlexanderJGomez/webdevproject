@@ -31,8 +31,8 @@ body {
     color: white;
     border: none;
     background: none;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 0px;
+    padding-right: 0px;
     transition: border-color .2s ease-in-out;
     border-bottom: 2px solid rgba(0,0,0,0);
     padding-bottom: 3px;
@@ -45,6 +45,17 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.mybreadcrumb, .mybreadcrumb:hover {
+    color: white;
+    text-decoration: none;
+    cursor: default;
+}
+
+/*.mybreadcrumb {*/
+    /*font-size: 17pt;*/
+/*}*/
+
 
 #google {
     background-color: salmon;
@@ -98,26 +109,3 @@ p.navbar-text.pull-left {
     padding-right: 10%;
     max-width: 700px;
 }
-
-
-/*.breadcrumb>li {  displays breadcrumbs horizonatally on the navbar     */
-/*display: inline-block;*/
-/*}*/
-
-/*#bc {*/
-    /*background: none;*/
-    /*padding-top: 19px;*/
-    /*margin-left: -6px;*/
-    /*font-size: 12pt;*/
-    /*text-decoration: none !important;*/
-/*}*/
-
-/*#bread {*/
-/*}*/
-
-/*.breadcrumb>.active {*/
-    /*color: #f6f6f6;*/
-/*}*/
-/*.breadcrumb>li:hover {*/
-    /*color: white !important;*/
-/*}*/
