@@ -3,15 +3,16 @@
         .module("Thrifty")
         .controller("HomeController", HomeController);
 
-    function HomeController($location) {
+    function HomeController($location, $rootScope) {
         var vm = this;
+        vm.user = $rootScope.currentUser;
+
+        console.log(vm.user);
 
         vm.enter = enter;
 
-        //GOTO a login/register page
         function enter() {
             $location.url("/login/");
-
         }
     }
 })();

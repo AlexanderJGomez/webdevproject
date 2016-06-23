@@ -6,11 +6,26 @@
             </a>
         </div>
         <!--<ul class="nav navbar-nav navbar-right" >-->
-            <p class="navbar-text pull-right">
-                <a class="mybutton" href="#/login" class="navbar-link">
-                  LOG IN / SIGN UP
-                </a>
-            </p>
+        <div ng-switch="model.user">
+            <div ng-switch-when="undefined">
+                <p class="navbar-text pull-right">
+                    <a class="mybutton" href="#/login" class="navbar-link">
+                      Log in
+                    </a>
+                    &nbsp·&nbsp
+                    <a class="mybutton" href="#/register" class="navbar-link">
+                        Sign up
+                    </a>
+                </p>
+            </div>
+            <div ng-switch-default>
+                <p class="navbar-text pull-right">
+                    <a class="mybutton" href="#/profile" class="navbar-link">
+                      {{model.user.username}}
+                    </a>
+                </p>
+            </div>
+        </div>
         <!--</ul>-->
     </div>
 </nav>
@@ -31,4 +46,3 @@
             </span>
     </div>
 </div>
-

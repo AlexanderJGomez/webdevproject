@@ -1,16 +1,25 @@
+<!--<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-left">-->
+            <!--<a href="#/login" class="navbar-link">-->
+                <!--<span class="glyphicon glyphicon-chevron-left">-->
+                <!--</span>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#/login">-->
+                <!--THRIFTY-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="#/login" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left">
-                </span>
-            </a>
+            <a class="mybutton" href="#/home" class="navbar-link">Home</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp Register</a>
         </p>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#/login">
-                THRIFTY
-            </a>
-        </div>
     </div>
 </nav>
 
@@ -32,6 +41,6 @@
        placeholder="verify password"
        type="password"/>
 <a ng-click="model.register(model.user.username, model.user.password)"
-   class="btn btn-primary btn-block">Register</a>
-<a class="btn btn-danger btn-block"
+   class="btn btn-primary btn-block btn-sm">Register</a>
+<a class="btn btn-danger btn-block btn-sm"
    href="#/login">Cancel</a>
