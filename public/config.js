@@ -34,7 +34,7 @@
             })
             .when("/item/new", {
                 templateUrl: "views/item/item-new.view.client.html",
-                controller: "ItemEditController",
+                controller: "ItemNewController",
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })

@@ -33,13 +33,10 @@ module.exports = function() {
         return User.find({username:username, password:pass});
     }
 
-
     function deleteUser(id) {
         //delete user._id;
         return User.findByIdAndRemove(id);
     }
-    
-
 
     function updateUser(id, newUser) {
         console.log(newUser);

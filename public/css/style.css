@@ -101,6 +101,13 @@ p.navbar-text.pull-left {
     /*cursor:default;*/
 }
 
+.container {
+    width: 100vw;
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 700px;
+}
+
 
 /*.breadcrumb>li {  displays breadcrumbs horizonatally on the navbar     */
 /*display: inline-block;*/
