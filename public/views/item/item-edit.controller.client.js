@@ -39,6 +39,7 @@
         // }
 
         function updateItem(item) {
+            console.log(item);
             ItemService.updateItem(id, item)
                 .then(
                     function(response) {
