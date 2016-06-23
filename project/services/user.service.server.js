@@ -28,12 +28,10 @@ module.exports = function(app, models) {
     }
 
     function serializeUser(user, done) {
-        console.log("serialize user");
         done(null, user);
     }
 
     function deserializeUser(user, done) {
-        console.log("deserialize user");
         userModel
             .findUserById(user._id)
             .then(

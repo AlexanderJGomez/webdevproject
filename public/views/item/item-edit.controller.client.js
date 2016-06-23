@@ -8,10 +8,8 @@
         var id = $routeParams.itemId;
         vm.updateItem = updateItem;
         vm.deleteItem = deleteItem;
-        // vm.createItem = createItem;
 
         function init() {
-            // console.log(id);
             if(id) {
                 ItemService.findItemById(id)
                     .then(function(response) {
@@ -24,19 +22,6 @@
         }
         init();
 
-        // function createItem(item) {
-        //     item.seller = $rootScope.currentUser._id;
-        //     ItemService.createItem(item)
-        //         .then(
-        //             function(response) {
-        //                 console.log(response.data);
-        //                 $location.url("/profile/listings");
-        //             },
-        //             function(err) {
-        //                 vm.error = "Error creating item";
-        //             }
-        //         );
-        // }
 
         function updateItem(item) {
             // console.log(item);

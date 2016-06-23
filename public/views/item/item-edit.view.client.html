@@ -35,16 +35,7 @@
                       placeholder="Description"></textarea>
     </div>
 
-    <!--<div class="form-group">-->
-        <!--<label for="item-price">Item Price</label>-->
-        <!--<input ng-model="model.item.price"-->
-               <!--id="item-price"-->
-               <!--type="number"-->
-               <!--min="0.01"-->
-               <!--max="99999"-->
-               <!--class="form-control"-->
-               <!--placeholder="Price">-->
-    <!--</div>-->
+
     <label for="item-price">Item Price</label>
     <div class="input-group">
         <span class="input-group-addon">$</span>
@@ -55,9 +46,18 @@
                max="99999"
                class="form-control"
                placeholder="Price">
-        <!--aria-label="Amount (to the nearest dollar)">-->
         <span class="input-group-addon">.00</span>
     </div>
+
+    <label for="item-image">Item Image URL</label>
+    <div class="input-group">
+        <input ng-model="model.item.image"
+               id="item-image"
+               type="text"
+               class="form-control"
+               placeholder="Image URL" disabled>
+    </div>
+
     <br>
 
     <!--<div class="form-group">-->
@@ -71,12 +71,9 @@
 
     <div class="form-group">
         <form action="/api/upload" method="post" enctype="multipart/form-data">
-            <!--<input  name="myFile"   type="file" class="form-control"/>-->
-            <!--<input  name="width"    value="{{model.widget.width}}" style="display: none"/>-->
-            <!--<input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>-->
-            <!--<input  name="pageId"   value="{{model.pageId}}"    style="display: none"/>-->
-            <!--<input  name="userId"   value="{{model.userId}}"    style="display: none"/>-->
-            <!--<input  name="websiteId"   value="{{model.websiteId}}"    style="display: none"/>-->
+            <input  name="myFile"   type="file" class="form-control"/>
+            <input  name="itemId" value="{{model.item._id}}"   style="display: none"/>
+            <input  name="seller" value="{{model.item.seller}}"   style="display: none"/>
             <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
         </form>
     </div>

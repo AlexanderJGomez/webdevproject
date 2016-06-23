@@ -1,6 +1,10 @@
 module.exports = function(app, models) {
     var ItemModel = models.itemModel;
+    var multer = require('multer');
+    var upload = multer({ dest: __dirname+'./../../public/uploads' });
 
+
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
     app.post("/api/user", createItem);
     app.get("/api/user/:userId/listings", findItemsBySeller);
     app.get("/api/item/:itemId", findItemById);
@@ -76,5 +80,44 @@ module.exports = function(app, models) {
                     res.status(404).send("Unable to remove item with ID: " + id);
                 }
             );
+    }
+
+    function uploadImage(req, res) {
+        console.log("In upload")
+        var itemId      = req.body.itemId;
+        var myFile        = req.file;
+        var newItem = {};
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+        console.log(myFile);
+        newItem.image = "/uploads/"+filename;
+        newItem.seller = req.body.seller;
+        newItem.description = req.body.description;
+        newItem.name = req.body.name;
+        newItem.price = req.body.price;
+        console.log(req.body.seller);
+        if(itemId) {
+            ItemModel.updateItem(itemId, newItem)
+                .then(function(item) {
+                        res.redirect("/item/"+itemId);
+                    },
+                    function(err) {
+                        res.status(404).send("Error updating item");
+                    })
+        }
+        else {
+            ItemModel.createItem(newItem)
+                .then(function(item) {
+                        res.redirect("/#/item/"+item._id);
+                    },
+                    function(err) {
+                        res.status(404).send("Error updating item");
+                    })
+        }
     }
 }

@@ -5,7 +5,8 @@
 
     function ItemNewController($location, $rootScope, $routeParams, ItemService) {
         var vm = this;
-        var id = $routeParams.itemId;
+        vm.item = {};
+        vm.item.seller = $rootScope.currentUser._id;
 
         vm.createItem = createItem;
 
