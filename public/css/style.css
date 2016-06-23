@@ -9,35 +9,22 @@ body {
 
 .btn {
     margin-bottom: 5px;
+    /*size: la;*/
 }
 
 .btn:focus,.btn:active {
     outline: none !important;
 }
 
-/*.navbar-inverse .navbar-brand {*/
-    /*font-color: white;*/
-/*}*/
-
-.navbar-inverse {
-    background-color: black;
+.navbar {
+    background-color: black !important;
     opacity: .8;
     max-height: 60px;
 }
 
-/*.navbar-inverse .navbar-link {*/
-    /*color: #ffffff;*/
-    /*text-decoration: none;*/
-/*}*/
-
-/*.navbar-nav>li>a {*/
-    /*color: white;*/
-/*}*/
-
 .navbar-inverse .navbar-brand:hover, .navbar-brand:focus, .navbar-link:hover, .navbar-link:focus, .mybutton:focus {
     color: white !important;
     text-decoration: none;
-    /*color: rgba(31, 230, 170, 0.8) !important;*/
 }
 
 .mybutton, button {
@@ -56,7 +43,6 @@ body {
     color: white;
     border-color: white;
     text-decoration: none;
-    /*transition: border-color .15s ease-out;*/
 }
 
 #google {
@@ -134,3 +120,4 @@ p.navbar-text.pull-left {
 /*.breadcrumb>li:hover {*/
     /*color: white !important;*/
 /*}*/
+
