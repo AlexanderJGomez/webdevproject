@@ -109,3 +109,29 @@ p.navbar-text.pull-left {
     padding-right: 5%;
     max-width: 700px;
 }
+
+.image-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.result-image {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.result-price {
+    text-align: right;
+}
+
+.result-text {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
