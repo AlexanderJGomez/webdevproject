@@ -105,7 +105,7 @@ p.navbar-text.pull-left {
 
 .container {
     width: 100vw;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     max-width: 700px;
 }

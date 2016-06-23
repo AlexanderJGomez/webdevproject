@@ -1,18 +1,36 @@
+<!--<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--&lt;!&ndash;<a ng-click="model.createItem(model.item)" class="glyphicon glyphicon-ok">&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<a class="mybutton" ng-click="model.createItem(model.item)" class="navbar-link">-->
+                <!--Add-->
+            <!--</a>-->
+        <!--</p>-->
+
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#/home">-->
+            <!--New Item-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <!--<a ng-click="model.createItem(model.item)" class="glyphicon glyphicon-ok">-->
-            <!--</a>-->
             <a class="mybutton" ng-click="model.createItem(model.item)" class="navbar-link">
                 Add
             </a>
         </p>
-
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#/home">
-            New Item
-            </a>
-        </div>
+        <p class="navbar-text pull-left">
+            <a class="mybutton" href="#/home" class="navbar-link">Home</a>
+            &nbsp/&nbsp
+            <a class="mybutton" href="#/profile" class="navbar-link">Profile</a>
+            &nbsp/&nbsp
+            <a class="mybutton" href="#/profile/listings" class="navbar-link">Listings</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp New</a>
+        </p>
     </div>
 </nav>
 
@@ -21,8 +39,8 @@
 </div>
 
 <form id="myForm" name="myForm" novalidate>
+    <label for="item-name">Item Name</label>
     <div class="form-group">
-        <label for="item-name">Item Name</label>
         <input ng-model="model.item.name"
                type="text"
                class="form-control"
@@ -30,12 +48,12 @@
                placeholder="Shirt" required>
     </div>
 
+    <label for="item-description">Item Description</label>
     <div class="form-group">
-        <label for="item-description">Item Description</label>
-            <textarea ng-model="model.item.description" rows="4"
-                      id="item-description"
-                      class="form-control"
-                      placeholder="Description"></textarea>
+        <textarea ng-model="model.item.description" rows="4"
+                  id="item-description"
+                  class="form-control"
+                  placeholder="Description"></textarea>
     </div>
 
     <label for="item-price">Item Price</label>
@@ -52,20 +70,15 @@
         <span class="input-group-addon">.00</span>
     </div>
 
-    <label for="item-price">Item Image URL</label>
-    <div class="input-group">
+    <label for="item-image">Item Image URL</label>
+    <div class="form-group">
         <input ng-model="model.item.image"
                id="item-image"
                type="text"
-               class="form-control"
-               placeholder="Image URL">
+               class="form-control stretch"
+               placeholder="Image URL" disabled>
     </div>
-
-    <br>
-
-
 </form>
-
 
 <div class="form-group">
     <form action="/api/upload" method="post" enctype="multipart/form-data">
