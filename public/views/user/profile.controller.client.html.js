@@ -25,6 +25,7 @@
                 .deleteUser(vm.user._id)
                 .then(
                     function(response) {
+                        $rootScope.currentUser = null;
                         $location.url("/home");
                     },
                     function(error){
