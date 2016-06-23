@@ -20,6 +20,6 @@ module.exports = function() {
         image: String,
         dateAdded: {type: Date, default: Date.now}
     }, {collection: "project.item"});
-
+    ItemSchema.index({ name: 'text', description: 'text'}, {name: 'My text index', weights: {name: 3, description: 1}});
     return ItemSchema;
 };

@@ -71,6 +71,7 @@ module.exports = function(app, models) {
                 res.status(409).send(err);
             });
     }
+    
 
     function login(req, res) {
         console.log("logged in");
@@ -118,13 +119,6 @@ module.exports = function(app, models) {
     }
 
     function updateUser(req, res) {
-        // console.log("user service server");
-        // console.log("params");
-        // console.log(req.params);
-        // console.log("body");
-        // console.log(req.body);
-        // console.log("body._id");
-        // console.log(req.body._id);
 
         var id = req.body._id;
         var newUser = req.body;

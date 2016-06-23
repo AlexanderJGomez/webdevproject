@@ -13,7 +13,8 @@ module.exports = function() {
         findItemsBySeller: findItemsBySeller,
         findItemById: findItemById,
         updateItem: updateItem,
-        deleteItem: deleteItem
+        deleteItem: deleteItem,
+        search: search
     };
 
     return api;
@@ -39,5 +40,14 @@ module.exports = function() {
     function updateItem(id, newItem) {
         console.log(newItem);
         return Item.findByIdAndUpdate(id, newItem);
+    }
+    
+    function search(searchParameter) {
+        return Item
+            .find(
+                { $text : { $search : searchParameter } },
+                { score : { $meta: "textScore" } }
+            )
+            .sort({ score : { $meta : 'textScore' } });
     }
 };

@@ -10,6 +10,7 @@ module.exports = function(app, models) {
     app.get("/api/item/:itemId", findItemById);
     app.put("/api/item/:itemId", updateItem);
     app.delete("/api/item/:itemId", deleteItem);
+    app.post("/api/search", search);
 
     function createItem(req, res) {
         var item = req.body;
@@ -49,6 +50,16 @@ module.exports = function(app, models) {
                     res.status(404).send(err.message);
                 }
             );
+    }
+
+    function search(req, res) {
+        ItemModel.search(req.body.search)
+            .then(function(items) {
+                res.send(items);
+            },
+            function(err) {
+                res.statusCode(err.message);
+            })
     }
 
     function updateItem(req, res) {

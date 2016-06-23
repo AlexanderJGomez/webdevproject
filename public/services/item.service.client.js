@@ -13,7 +13,8 @@
             findItemsBySeller: findItemsBySeller,
             findItemById: findItemById,
             updateItem: updateItem,
-            deleteItem: deleteItem
+            deleteItem: deleteItem,
+            search: search
         };
         return api;
 
@@ -26,10 +27,13 @@
             var url = "/api/user/" + id + "/listings";
             return $http.get(url);
         }
+
+        function search(searchParamater) {
+            var searchObj = { search: searchParamater};
+            return $http.post("/api/search", searchObj);
+        }
         
         function findItemById(id) {
-            // console.log("item service client");
-            // console.log(id);
             var url = "/api/item/" + id;
             return $http.get(url);
         }
