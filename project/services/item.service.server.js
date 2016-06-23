@@ -26,7 +26,7 @@ module.exports = function(app, models) {
 
     function findItemsBySeller(req, res) {
         var id = req.params.userId;
-        console.log(id);
+
         ItemModel.findItemsBySeller(id)
             .then(
                 function(items) {
@@ -94,7 +94,6 @@ module.exports = function(app, models) {
     }
 
     function uploadImage(req, res) {
-        console.log("In upload")
         var itemId      = req.body.itemId;
         var myFile        = req.file;
         var newItem = {};
@@ -105,13 +104,13 @@ module.exports = function(app, models) {
         var destination   = myFile.destination;  // folder where file is saved to
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
-        console.log(myFile);
+
         newItem.image = "/uploads/"+filename;
         newItem.seller = req.body.seller;
         newItem.description = req.body.description;
         newItem.name = req.body.name;
         newItem.price = req.body.price;
-        console.log(req.body.seller);
+
         if(itemId) {
             ItemModel.updateItem(itemId, newItem)
                 .then(function(item) {
