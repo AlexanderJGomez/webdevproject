@@ -14,7 +14,7 @@
             ItemService.createItem(item)
                 .then(
                     function (response) {
-                        console.log(response.data);
+                        // console.log(response.data);
                         $location.url("/profile/listings");
                     },
                     function (err) {

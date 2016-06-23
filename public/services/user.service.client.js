@@ -22,7 +22,7 @@
         return api;
 
         function updateUser(id, newUser) {
-            console.log("user service client");
+            // console.log("user service client");
             var url = "/api/user/"+id;
             return $http.put(url, newUser);
         }
@@ -48,7 +48,7 @@
 
 
         function register(username, password) {
-            console.log("In register");
+            // console.log("In register");
             var url = "/api/register";
             
             var user = {

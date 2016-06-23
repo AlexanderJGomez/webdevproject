@@ -20,7 +20,7 @@
         init();
 
         function unregister() {
-            console.log(vm.user._id);
+            // console.log(vm.user._id);
             UserService
                 .deleteUser(vm.user._id)
                 .then(
@@ -34,7 +34,7 @@
         }
         
         function updateUser() {
-            console.log("update user");
+            // console.log("update user");
             UserService
                 .updateUser(vm.user._id, vm.user)
                 .then(

@@ -15,7 +15,7 @@
                 .then(
                     function(response) {
                         var user = response.data;
-                        console.log("login controller");
+                        // console.log("login controller");
                         
                         if (user) {
                             $rootScope.currentUser = user;

@@ -11,7 +11,7 @@
         // vm.createItem = createItem;
 
         function init() {
-            console.log(id);
+            // console.log(id);
             if(id) {
                 ItemService.findItemById(id)
                     .then(function(response) {
@@ -39,7 +39,7 @@
         // }
 
         function updateItem(item) {
-            console.log(item);
+            // console.log(item);
             ItemService.updateItem(id, item)
                 .then(
                     function(response) {
@@ -52,7 +52,7 @@
         }
 
         function deleteItem() {
-            console.log("deleteitem");
+            // console.log("deleteitem");
             ItemService.deleteItem(id)
                 .then(
                     function(response) {

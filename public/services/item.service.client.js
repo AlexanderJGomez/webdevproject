@@ -28,8 +28,8 @@
         }
         
         function findItemById(id) {
-            console.log("item service client");
-            console.log(id);
+            // console.log("item service client");
+            // console.log(id);
             var url = "/api/item/" + id;
             return $http.get(url);
         }

@@ -1,6 +1,3 @@
-/**
- * Created by alexgomez on 6/21/16.
- */
 (function(){
     angular
         .module("Thrifty")
@@ -10,22 +7,21 @@
         var vm = this;
         
         function init() {
-            console.log($rootScope.currentUser._id);
             ItemService.findItemsBySeller($rootScope.currentUser._id)
-                .then(function (response) {
-                    console.log("In ILC");
-                    vm.items = response.data;
-                    console.log(vm.items);
+                .then(
+                    function (response) {
+                        vm.items = response.data;
 
-                    // To display help text when users are selling no items (used in view in an ng-show)
-                    if (vm.items.length == 0) {
-                        vm.emptyItems = true;
-                        console.log(vm.emptyItems);
+                        // To display help text when users are selling no items (used in view in an ng-show)
+                        if (vm.items.length == 0) {
+                            vm.emptyItems = true;
+                            // console.log(vm.emptyItems);
+                        }
+                    },
+                    function(err) {
+                        console.log(err);
                     }
-                },
-                function(err) {
-                    console.log(err);
-                })
+                );
         }
         init();
         
