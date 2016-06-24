@@ -29,10 +29,13 @@
     </div>
 </div>
 
+<div>
+    <p>Total is {{model.total}}</p>
+</div>
+
 <div id="container">
     <br>
-    <h4 ng-show="model.emptyItems">
-        You are not selling any items,
-        click New to add a new listing!
+    <h4 ng-show="!model.total">
+        Your cart is empty
     </h4>
 </div>
