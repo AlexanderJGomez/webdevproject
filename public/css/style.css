@@ -201,3 +201,37 @@ p.navbar-text.pull-left {
         font-size: 10px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .itemview-name {
+        font-size: 19pt;
+    }
+
+    .itemview-seller {
+        padding-top: -10px;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    .itemviewview {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .itemview-description {
+        font-size: 14pt;
+    }
+
+    .itemview-price-cart {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .itemview-price {
+        display: flex;
+        flex-direction: row;
+        font-size: 19pt;
+        padding-right: 20px;
+    }
+}
