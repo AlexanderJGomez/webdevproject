@@ -11,7 +11,8 @@ module.exports = function() {
         findUserByCredentials: findUserByCredentials,
         findUserById: findUserById,
         deleteUser: deleteUser,
-        updateUser: updateUser
+        updateUser: updateUser,
+        addToCart: addToCart
     };
 
     return api;
@@ -22,6 +23,10 @@ module.exports = function() {
 
     function createUser(user) {
         return User.create(user);
+    }
+    
+    function addToCart(userId, itemId) {
+        return User.findByIdAndUpdate(userId, {$push: {items: itemId}});
     }
 
     function findUserByUsername(username) {

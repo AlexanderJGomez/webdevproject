@@ -9,17 +9,18 @@ module.exports = function() {
             process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
             process.env.OPENSHIFT_APP_NAME;
     }
- 
+
     var mongoose = require("mongoose");
     mongoose.connect(connectionString);
 
     var userModel = require("./user/user.model.server.js")();
     var itemModel = require("./item/item.model.server.js")();
-    // var purchaseModel = require("./purchase/purchase.model.server.js")();
+    var purchaseModel = require("./purchase/purchase.model.server.js")();
 
     var models = {
         userModel: userModel,
-        itemModel: itemModel
+        itemModel: itemModel,
+        purchaseModel: purchaseModel
     };
 
     return models;

@@ -12,6 +12,7 @@ module.exports = function(app, models) {
     app.get ('/api/loggedin', loggedin);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", authenticate, deleteUser);
+    app.put("/api/user/:userid/cart", addToCart);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -60,6 +61,16 @@ module.exports = function(app, models) {
                     if (err) { return done(err); }
                 }
             );
+    }
+
+    function addToCart(req, res) {
+        userModel.addToCart(req.params.userId, req.body.itemId)
+            .then(function(user) {
+                res.json(user);
+            },
+            function(err) {
+                res.statusCode(err.message);
+            })
     }
 
     function getUsers(req, res) {

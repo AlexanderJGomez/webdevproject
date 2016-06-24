@@ -17,7 +17,8 @@
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findUserById: findUserById,
             updateUser: updateUser,
-            deleteUser: deleteUser
+            deleteUser: deleteUser,
+            addToCart: addToCart
         };
         return api;
 
@@ -29,6 +30,11 @@
 
         function logout() {
             return $http.post("/api/logout");
+        }
+
+        function addToCart(userId, itemId) {
+            var url = "/api/user/" + userId + "/cart";
+            return $http.put(url, itemId);
         }
 
         function login(username, password) {

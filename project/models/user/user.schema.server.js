@@ -14,7 +14,7 @@ module.exports = function() {
         google: {
         },
         email: String,
-        //items: [{type: mongoose.Schema.Types.ObjectId, ref: "Item"}],
+        cart: [{type: mongoose.Schema.Types.ObjectId, ref: "Item"}],
         dateCreated: {type: Date, default: Date.now}
     }, {collection: "project.user"});
 
