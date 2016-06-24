@@ -32,15 +32,26 @@
     {{model.error}}
 </div>
 
-<ul class="list-group">
-    <li ng-repeat="item in model.items" class="list-group-item">
-        <a href="#/item/{{item._id}}">
-            {{item.name}}
-            <span class="glyphicon glyphicon-edit pull-right"></span>
-        </a>
-        <img ng-src="{{item.image}}"  width="100" height="100">
-    </li>
-</ul>
+
+<div ng-show="model.items" class="image-grid">
+    <div ng-repeat="item in model.items">
+        <div class="result">
+            <div class="result-image"
+                 style="width: 180px; height: 180px;
+                 background-image: url('{{item.image}}');
+                 background-size: auto 100%; background-color: rgba(0,0,0,0);
+                 background-position: center; overflow: hidden">
+            </div>
+            <a class="result-text" href="#/item/{{item._id}}">
+                {{item.name}}
+                <div class="result-price">
+                    ${{item.price}}
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>
 
 <div id="container">
     <br>

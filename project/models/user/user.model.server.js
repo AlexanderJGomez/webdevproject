@@ -3,7 +3,9 @@ module.exports = function() {
     var mongoose = require("mongoose");
     
     var UserSchema = require("./user.schema.server.js")();
+    // var ItemSchema = require("../item/item.schema.server")();
     var User = mongoose.model("User", UserSchema);
+    // var Item = mongoose.model("Item", ItemSchema);
 
     var api = {
         createUser: createUser,
@@ -12,7 +14,8 @@ module.exports = function() {
         findUserById: findUserById,
         deleteUser: deleteUser,
         updateUser: updateUser,
-        addToCart: addToCart
+        addToCart: addToCart,
+        populateCart: populateCart
     };
 
     return api;
@@ -26,7 +29,14 @@ module.exports = function() {
     }
     
     function addToCart(userId, itemId) {
-        return User.findByIdAndUpdate(userId, {$push: {items: itemId}});
+        console.log("In here")
+        console.log(itemId)
+        console.log(userId)
+        return User.findByIdAndUpdate(userId, {$push: {cart: itemId}}, {safe: true, upsert: true, new : true});
+    }
+    
+    function populateCart(id) {
+        return User.findById(id).populate("cart");
     }
 
 

@@ -18,7 +18,8 @@
             findUserById: findUserById,
             updateUser: updateUser,
             deleteUser: deleteUser,
-            addToCart: addToCart
+            addToCart: addToCart,
+            populateCart: populateCart
         };
         return api;
 
@@ -28,13 +29,20 @@
             return $http.put(url, newUser);
         }
 
+        function populateCart(id) {
+            var url = "/api/user/"+id+"/cart"
+            return $http.get(url);
+        }
+
         function logout() {
             return $http.post("/api/logout");
         }
 
         function addToCart(userId, itemId) {
+            var itemIdObj = {itemId: itemId};
+            console.log("made it to client service");
             var url = "/api/user/" + userId + "/cart";
-            return $http.put(url, itemId);
+            return $http.put(url, itemIdObj);
         }
 
         function login(username, password) {
