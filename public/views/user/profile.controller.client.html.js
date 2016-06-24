@@ -3,7 +3,7 @@
         .module("Thrifty")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController($location, $window, $routeParams, UserService) {
+    function ProfileController($location, $rootScope, $routeParams, UserService) {
         var vm = this;
 
         vm.updateUser = updateUser;
@@ -11,11 +11,11 @@
         vm.logout = logout;
         vm.addToBalance = addToBalance;
 
-        console.log(JSON.parse($window.localStorage.getItem("currentUser")));
+        console.log($rootScope.currentUser);
 
 
         function init() {
-            vm.user = JSON.parse($window.localStorage.getItem("currentUser"))
+            vm.user = $rootScope.currentUser;
         }
         init();
 
@@ -24,7 +24,7 @@
                 .deleteUser(vm.user._id)
                 .then(
                     function(response) {
-                        $window.localStorage.setItem('currentUser', null);
+                        $rootScope.currentUser = null;
                         $location.url("/home");
                     },
                     function(error){
@@ -39,6 +39,7 @@
                 .updateUser(vm.user._id, vm.user)
                 .then(
                     function(response) {
+                        $rootScope.currentUser = response.data;
                         vm.success = "User successfully updated";
                     },
                     function (error) {
@@ -67,11 +68,11 @@
                 .logout()
                 .then(
                     function() {
-                        $window.localStorage.setItem('currentUser', null);
+                        $rootScope.currentUser = null;
                         $location.url("/home");
                     },
                     function() {
-                        $window.localStorage.setItem('currentUser', null);
+                        $rootScope.currentUser = null;
                         $location.url("/home");
                     }
                 );
