@@ -52,8 +52,9 @@
 
 <div ng-show="model.items" class="image-grid">
     <div ng-repeat="item in model.items">
-        <div class="result-image">
-            <div style="width: 150px; height: 150px;
+        <div class="result">
+            <div class="result-image"
+                 style="width: 180px; height: 180px;
                  background-image: url('{{item.image}}');
                  background-size: auto 100%; background-color: rgba(0,0,0,0);
                  background-position: center; overflow: hidden">
