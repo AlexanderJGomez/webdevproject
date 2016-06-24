@@ -8,7 +8,7 @@ module.exports = function() {
     var Purchase = mongoose.model("Purchase", PurchaseSchema);
 
     var api = {
-        findPurchaseForUser: findPurchaseForUser,
+        findPurchasesForUser: findPurchasesForUser,
         createPurchase: createPurchase
     };
     return api;

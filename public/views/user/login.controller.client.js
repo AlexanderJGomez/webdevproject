@@ -3,7 +3,7 @@
         .module("Thrifty")
         .controller("LoginController", LoginController);
 
-    function LoginController($location, $rootScope, UserService) {
+    function LoginController($location, $window, UserService) {
         var vm = this;
 
         vm.login = login;
@@ -18,7 +18,7 @@
                         // console.log("login controller");
                         
                         if (user) {
-                            $rootScope.currentUser = user;
+                            $window.localStorage.setItem('currentUser', angular.toJson(user));
                             var id = user._id;
                             $location.url("/profile");
                         }

@@ -3,11 +3,11 @@
         .module("Thrifty")
         .controller("ItemListController", ItemListController);
 
-    function ItemListController($location, $rootScope, $routeParams, ItemService) {
+    function ItemListController($location, $window, $routeParams, ItemService) {
         var vm = this;
         
         function init() {
-            ItemService.findItemsBySeller($rootScope.currentUser._id)
+            ItemService.findItemsBySeller(JSON.parse($window.localStorage.getItem('currentUser'))._id)
                 .then(
                     function (response) {
                         vm.items = response.data;

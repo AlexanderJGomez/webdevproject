@@ -29,6 +29,7 @@ module.exports = function() {
         return User.findByIdAndUpdate(userId, {$push: {items: itemId}});
     }
 
+
     function findUserByUsername(username) {
         return User.find({username: username});
     }

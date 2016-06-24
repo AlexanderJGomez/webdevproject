@@ -9,8 +9,7 @@ var passport     = require('passport');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//allows us to configure session so session info is encrypted. going to send browser info in cookie
-// -that uniquely identifies user. send info from server to client. should be an authorized user
+
 app.use(cookieParser());
 app.use(session({
     secret: 'process.env.SESSION_SECRET',
