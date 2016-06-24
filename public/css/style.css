@@ -5,9 +5,16 @@ input {
 body {
     padding-top: 70px;
     padding-bottom: 20px;
-    background-image: url("../images/projecthome.jpg");
-    background-color: #cccccc;
+    background-color: rgba(0, 0, 0, 0.005);
 }
+
+/*html {*/
+    /*background: url(../images/projecthome.jpg) no-repeat center center fixed !important;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
 
 .btn {
     margin-bottom: 5px;
@@ -81,6 +88,7 @@ h2, h4, h5{
     opacity: .85;
     left: 0;
     top: 0;
+    z-index: -1;
 }
 
 #tagline {
@@ -119,15 +127,6 @@ p.navbar-text.pull-left {
     margin-right: 8px;
 }
 
-/*.deposit-group, .balance {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-/*}*/
-
-/*.input-group > .form-control {*/
-    /*width: 80%;*/
-/*}*/
-
 .container {
     width: 100vw;
     padding-left: 5%;
@@ -135,15 +134,16 @@ p.navbar-text.pull-left {
     max-width: 800px;
 }
 
-
-
 .image-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    z-index: 10;
+    margin-top: 20px;
 }
 
 /*desktop - image size is set in index.html*/

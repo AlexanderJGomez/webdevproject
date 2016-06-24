@@ -30,20 +30,15 @@
 
 <p class="itemview-description">{{model.item.description}}</p>
 
-<div ng-show="!model.user && model.user.cart.indexOf(model.item._id) < 0">
-    +&nbsp<span ng-click="model.addToCart()" class="btn btn-success glyphicon glyphicon-shopping-cart">+</span>
-</div>
-
-<div class="itemview-price-cart">
-    <p class="itemview-price">${{model.item.price}}</p>
-    <div ng-click="model.addToCart()" class="btn btn-info btn-md">
-        +&nbsp
-        <span class="glyphicon glyphicon-shopping-cart"></span>
+<div ng-show="model.user && model.user.cart.indexOf(model.item._id) < 0">
+    <div class="itemview-price-cart">
+        <p class="itemview-price">${{model.item.price}}</p>
+        <div ng-click="model.addToCart()" class="btn btn-info btn-md">
+            +&nbsp
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </div>
     </div>
 </div>
-
-
-
 
 <img src="{{model.item.url}}"/>
 

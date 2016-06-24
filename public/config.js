@@ -8,7 +8,8 @@
             .when("/home", {
                 templateUrl: "views/home/home.view.client.html",
                 controller: "HomeController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {loggedin: validateUser}
             })
             .when("/login", {
                 templateUrl: "views/user/login.view.client.html",
@@ -48,7 +49,7 @@
                 templateUrl: "views/item/item-view.view.client.html",
                 controller: "ItemViewController",
                 controllerAs: "model",
-                resolve: {loggedin: checkLoggedIn}
+                resolve: {loggedin: validateUser}
             })
             .when("/profile/cart", {
                 templateUrl: "views/item/cart.view.client.html",
@@ -79,7 +80,32 @@
                     function(err) {
                         console.log(err);
                         deferred.reject();
-                    })
+                    });
+
+            deferred.promise;
+        }
+
+        function validateUser(UserService, $q, $location, $rootScope) {
+            var deferred = $q.defer();
+            UserService
+                .checkLoggedIn()
+                .then(function(response) {
+                        var user = response.data;
+                        if(user == '0') {
+                            console.log("user == 0, resolving");
+                            deferred.resolve();
+                            // $location.url("/home");
+                        }
+                        else {
+                            console.log("user logged in, resolving");
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                    },
+                    function(err) {
+                        console.log(err);
+                        deferred.reject();
+                    });
 
             deferred.promise;
         }

@@ -24,6 +24,10 @@
                 .then(function(response) {
                     console.log(response.data);
                     vm.items = response.data;
+                    
+                    if (vm.items.length == 0) {
+                        vm.emptyItems = true;
+                    }
                 },
                 function(err) {
                     console.log(err.message);
