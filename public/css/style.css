@@ -5,6 +5,8 @@ input {
 body {
     padding-top: 70px;
     padding-bottom: 20px;
+    background-image: url("../images/projecthome.jpg");
+    background-color: #cccccc;
 }
 
 .btn {
@@ -133,12 +135,15 @@ p.navbar-text.pull-left {
     max-width: 800px;
 }
 
+
+
 .image-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    background-color: white;
 }
 
 /*desktop - image size is set in index.html*/

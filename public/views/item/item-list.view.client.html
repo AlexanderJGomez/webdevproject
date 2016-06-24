@@ -1,17 +1,3 @@
-<!--<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">-->
-    <!--<div class="container-fluid">-->
-        <!--<p class="navbar-text pull-right">-->
-            <!--<a class="mybutton" href="#/item/new">New-->
-            <!--</a>-->
-        <!--</p>-->
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" href="#/home">-->
-                <!--My Listings-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
-
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
@@ -23,7 +9,7 @@
             <a class="mybutton" href="#/home" class="navbar-link">Home</a>
             &nbsp/&nbsp
             <a class="mybutton" href="#/profile" class="navbar-link">Profile</a>
-            <a class="mybreadcrumb">&nbsp/&nbsp My Listings</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp Listings</a>
         </p>
     </div>
 </nav>
@@ -35,21 +21,23 @@
 
 <div ng-show="model.items" class="image-grid">
     <div ng-repeat="item in model.items">
-        <div class="result">
-            <div class="result-image"
-                 style="width: 180px; height: 180px;
-                 background-image: url('{{item.image}}');
-                 background-size: auto 100%; background-color: rgba(0,0,0,0);
-                 background-position: center; overflow: hidden">
-            </div>
-            <a class="result-text" href="#/item/{{item._id}}">
-                {{item.name}}
-                <div class="result-price">
-                    ${{item.price}}
+        <a href="#/item/{{item._id}}">
+            <div class="result">
+                <div class="result-image"
+                     style="width: 180px; height: 180px;
+                     background-image: url('{{item.image}}');
+                     background-size: auto 100%; background-color: rgba(0,0,0,0);
+                     background-position: center; overflow: hidden">
                 </div>
+                <a class="result-text" href="#/item/{{item._id}}">
+                    {{item.name}}
+                    <div class="result-price">
+                        ${{item.price}}
+                    </div>
 
-            </a>
-        </div>
+                </a>
+            </div>
+        </a>
     </div>
 </div>
 

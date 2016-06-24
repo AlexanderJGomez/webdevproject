@@ -1,19 +1,3 @@
-<!--<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">-->
-    <!--<div class="container-fluid">-->
-        <!--<p class="navbar-text pull-left">-->
-            <!--<a href="#/login" class="navbar-link">-->
-                <!--<span class="glyphicon glyphicon-chevron-left">-->
-                <!--</span>-->
-            <!--</a>-->
-        <!--</p>-->
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" href="#/login">-->
-                <!--THRIFTY-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
-
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
@@ -29,17 +13,24 @@
 
 <h2>Register</h2>
 <input ng-model="model.user.username"
-       class="form-control"
+       class="form-control input-sm"
        placeholder="username"
        type="text"/>
-<input ng-model="model.user.password"
-       class="form-control"
-       placeholder="password"
-       type="password"/>
-<input ng-model="model.user.password2"
-       class="form-control"
-       placeholder="verify password"
-       type="password"/>
+<div class="flexbox-container">
+    <div>
+        <input ng-model="model.user.password"
+               class="form-control input-sm"
+               placeholder="password"
+               type="password"/>
+    </div>
+    <div>
+        <input ng-model="model.user.password2"
+               class="form-control input-sm"
+               placeholder="verify password"
+               type="password"/>
+    </div>
+</div>
+
 <a ng-click="model.register(model.user.username, model.user.password)"
    class="btn btn-primary btn-block btn-sm">Register</a>
 <a class="btn btn-danger btn-block btn-sm"
