@@ -13,6 +13,10 @@ module.exports = function() {
             type: String
         },
         price: Number,
+        category: {
+            type: String,
+            enum: ["Tops", "Bottoms", "Footwear", "Outerwear"]
+        },
         seller: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'

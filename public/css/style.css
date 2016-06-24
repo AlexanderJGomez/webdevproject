@@ -107,5 +107,88 @@ p.navbar-text.pull-left {
     width: 100vw;
     padding-left: 5%;
     padding-right: 5%;
-    max-width: 700px;
+    max-width: 800px;
+}
+
+.image-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+
+/*desktop - image size is set in index.html*/
+.result {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.result-price {
+    text-align: right;
+}
+
+.result-text {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/*tablet*/
+@media only screen and (max-width: 768px) {
+    .result {
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-bottom: 22px;
+        margin-top: 22px;
+    }
+
+    .result-image {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    .result-price {
+        text-align: right;
+    }
+
+    .result-text {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+}
+
+/*mobile*/
+@media only screen and (max-width: 600px) {
+    .result {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .result-image {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .result-price {
+        text-align: right;
+    }
+
+    .result-text {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 10px;
+    }
 }
