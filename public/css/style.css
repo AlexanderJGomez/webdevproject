@@ -125,6 +125,8 @@ p.navbar-text.pull-left {
     margin-left: 20px;
     margin-bottom: 30px;
     margin-top: 30px;
+    padding-bottom: 3px;
+    border-bottom: solid lightgray .3px;
 }
 
 .result-price {
@@ -132,6 +134,7 @@ p.navbar-text.pull-left {
 }
 
 .result-text {
+    padding-top: 3px;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -146,6 +149,8 @@ p.navbar-text.pull-left {
         margin-left: 15px;
         margin-bottom: 22px;
         margin-top: 22px;
+        padding-bottom: 2px;
+        border-bottom: solid lightgray .2px;
     }
 
     .result-image {
@@ -158,6 +163,7 @@ p.navbar-text.pull-left {
     }
 
     .result-text {
+        padding-top: 2px;
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -171,13 +177,15 @@ p.navbar-text.pull-left {
     .result {
         margin-right: 10px;
         margin-left: 10px;
-        margin-bottom: 15px;
-        margin-top: 15px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-bottom: 1px;
+        border-bottom: solid lightgray .1px;
     }
 
     .result-image {
-        width: 80px !important;
-        height: 80px !important;
+        width: 90px !important;
+        height: 90px !important;
     }
 
     .result-price {
@@ -185,6 +193,7 @@ p.navbar-text.pull-left {
     }
 
     .result-text {
+        padding-top: 1px;
         display: flex;
         flex-direction: row;
         width: 100%;
