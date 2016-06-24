@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a ng-click="model.updateItem(model.item)" class="mybutton">
+            </a>
+        </p>
+        <p class="navbar-text pull-left">
+            <a class="mybutton" href="#/home" class="navbar-link">Home</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp {{model.item.name}}</a>
+        </p>
+    </div>
+</nav>
+
+<div ng-if="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<div style="width: 180px; height: 180px;
+     background-image: url('{{model.item.image}}');
+     background-size: auto 100%; background-color: rgba(0,0,0,0);
+     background-position: center; overflow: hidden">
+</div>
+
+<h3>{{model.item.name}}</h3>
+
+<p>{{model.item.description}}</p>
+
+<h4>${{model.item.price}}</h4>
+
+<div ng-show="!model.user && model.user.cart.indexOf(model.item._id) < 0">
+    +&nbsp<span ng-click="model.addToCart()" class="btn btn-success glyphicon glyphicon-shopping-cart">+</span>
+</div>
+
+<div ng-click="model.addToCart()" class="btn btn-success">
+    +&nbsp
+    <span class="glyphicon glyphicon-shopping-cart"></span>
+</div>
+
+
+<h6>{{model.item.seller.username}}</h6>
+
+<img src="{{model.item.url}}"/>
+
+
+<!--</form>-->

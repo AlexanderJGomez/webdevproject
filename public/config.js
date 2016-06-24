@@ -44,11 +44,17 @@
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })
+            .when("/item/:itemId/view", {
+                templateUrl: "views/item/item-view.view.client.html",
+                controller: "ItemViewController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });
 
-        function checkLoggedIn(UserService, $q, $location, $rootScope) {
+        function checkLoggedIn(UserService, $q, $location, $window/*$rootScope*/) {
             var deferred = $q.defer();
             UserService
                 .checkLoggedIn()
@@ -59,7 +65,7 @@
                             $location.url("/home");
                         }
                         else {
-                            $rootScope.currentUser = user;
+                            $window.sessionStorage.currentUser = user;
                             deferred.resolve();
                         }
                     },
