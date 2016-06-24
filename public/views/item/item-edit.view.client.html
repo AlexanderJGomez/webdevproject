@@ -39,7 +39,7 @@
     <div class="form-group">
         <input ng-model="model.item.name"
                type="text"
-               class="form-control"
+               class="form-control input-sm"
                id="item-name"
                placeholder="Shirt" required>
     </div>
@@ -48,22 +48,22 @@
     <div class="form-group">
         <textarea ng-model="model.item.description" rows="4"
                   id="item-description"
-                  class="form-control"
+                  class="form-control input-sm"
                   placeholder="Description"></textarea>
     </div>
 
 
     <label for="item-price">Item Price</label>
     <div class="input-group">
-        <span class="input-group-addon">$</span>
+        <span class="input-group-addon input-sm">$</span>
         <input ng-model="model.item.price"
                id="item-price"
                type="number"
                min="0.01"
                max="99999"
-               class="form-control"
+               class="form-control input-sm"
                placeholder="Price">
-        <span class="input-group-addon">.00</span>
+        <span class="input-group-addon input-sm">.00</span>
     </div>
 
     <label for="item-image">Item Image URL</label>
@@ -71,7 +71,7 @@
         <input ng-model="model.item.image"
                id="item-image"
                type="text"
-               class="form-control"
+               class="form-control input-sm"
                placeholder="Image URL" disabled>
     </div>
 
@@ -86,13 +86,13 @@
 
     <div class="form-group">
         <form action="/api/upload" method="post" enctype="multipart/form-data">
-            <input  name="myFile"   type="file" class="form-control"/>
+            <input  name="myFile"   type="file" class="form-control input-sm"/>
             <input  name="itemId" value="{{model.item._id}}"   style="display: none"/>
             <input  name="seller" value="{{model.item.seller}}"   style="display: none"/>
-            <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+            <button type="submit"   class="btn btn-primary btn-block btn-sm">Upload Image</button>
         </form>
+        <a ng-click="model.deleteItem()"
+           class="btn btn-danger btn-block btn-sm">Delete</a>
     </div>
 
-    <a ng-click="model.deleteItem()"
-       class="btn btn-danger btn-block">Delete</a>
 </form>

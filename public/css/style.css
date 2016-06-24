@@ -9,6 +9,7 @@ body {
 
 .btn {
     margin-bottom: 5px;
+    border-radius: 7px;
 }
 
 .btn:focus,.btn:active {
@@ -97,17 +98,11 @@ p.navbar-text.pull-left {
     margin-left: 6px;
 }
 
-#username {
-    background-color: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.05);
+:disabled {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(0, 0, 0, 0.05) !important;
     /*cursor:default;*/
 }
-
-/*.user-name {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: flex-end !important;*/
-/*}*/
 
 .flexbox-container {
     display: flex;
