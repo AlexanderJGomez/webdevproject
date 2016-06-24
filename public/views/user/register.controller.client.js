@@ -3,7 +3,7 @@
        .module("Thrifty")
        .controller("RegisterController", RegisterController);
 
-    function RegisterController(UserService, $location, $window) {
+    function RegisterController(UserService, $location, $rootScope) {
         var vm = this;
         vm.user = {};
         vm.register = register;
@@ -16,7 +16,7 @@
                     function(response) {
                         var user = response.data;
                         console.log(user);
-                        $window.sessionStorage.setItem('currentUser', angular.toJson(user));
+                        $rootScope.currentUser = user;
                         $location.url("/profile");
                     },
                     function(err) {
