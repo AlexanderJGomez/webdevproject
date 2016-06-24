@@ -50,6 +50,12 @@
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })
+            .when("/profile/cart", {
+                templateUrl: "views/item/cart.view.client.html",
+                controller: "CartController",
+                controllerAs: "model",
+                resolve: {loggedin : checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });
