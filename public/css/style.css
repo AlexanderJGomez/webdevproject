@@ -103,6 +103,34 @@ p.navbar-text.pull-left {
     /*cursor:default;*/
 }
 
+/*.user-name {*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: flex-end !important;*/
+/*}*/
+
+.flexbox-container {
+    display: flex;
+}
+
+.flexbox-container > div {
+    width: 50%;
+    padding: 0px;
+}
+
+.flexbox-container > div:first-child {
+    margin-right: 8px;
+}
+
+/*.deposit-group, .balance {*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+/*}*/
+
+/*.input-group > .form-control {*/
+    /*width: 80%;*/
+/*}*/
+
 .container {
     width: 100vw;
     padding-left: 5%;
@@ -117,7 +145,6 @@ p.navbar-text.pull-left {
     width: 100%;
     justify-content: center;
 }
-
 
 /*desktop - image size is set in index.html*/
 .result {

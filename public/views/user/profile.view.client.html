@@ -22,11 +22,10 @@
 <form>
     <div class="form-group">
         <label for="username">Username</label>
-
         <div class="form-group">
             <input ng-model="model.user.username"
                    type="text"
-                   class="form-control"
+                   class="form-control input-sm"
                    id="username"
                    placeholder="awonderland65"
                    disabled/>
@@ -36,47 +35,59 @@
         <label for="email">Email address</label>
         <input ng-model="model.user.email"
                type="email"
-               class="form-control"
+               class="form-control input-sm"
                id="email"
                placeholder="alice@wonderland.com">
     </div>
-    <div class="form-group">
-        <label for="first">First Name</label>
-        <input ng-model="model.user.firstName"
-               type="text"
-               class="form-control"
-               id="first"
-               placeholder="Alice">
+    <div class="flexbox-container">
+        <div class="form-group">
+            <label for="first">First Name</label>
+            <input ng-model="model.user.firstName"
+                   type="text"
+                   class="form-control input-sm"
+                   id="first"
+                   placeholder="Alice">
+        </div>
+        <div class="form-group">
+            <label for="last">Last Name</label>
+            <input ng-model="model.user.lastName"
+                   type="text"
+                   class="form-control input-sm"
+                   id="last"
+                   placeholder="Wonderland">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="last">Last Name</label>
-        <input ng-model="model.user.lastName"
-               type="text"
-               class="form-control"
-               id="last"
-               placeholder="Wonderland">
-    </div>
-
 </form>
 
-<div class="balance">
-    <div>
-        <label for="balance">Balance</label>
+<label for="balance">Balance</label>
+<div class="flexbox-container">
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
         <input ng-model="model.user.balance"
                type="number"
-               class="form-control"
+               min="0.01"
+               max="99999"
+               class="form-control input-sm"
                id="balance" disabled>
     </div>
-    <div>
+    <div class="deposit-group form-group">
         <input ng-model="model.deposit"
+               class="form-control input-sm"
+               placeholder="15"
                type="number">
-        <button ng-click="model.addToBalance()" class="btn btn-primary">Deposit</button>
     </div>
 </div>
 
+<div class="flexbox-container">
+    <div>
+        <a ng-click="model.updateUser()" class="btn btn-primary btn-block btn-sm">Update Profile</a>
+    </div>
+    <div>
+        <button ng-click="model.addToBalance()" class="btn btn-success btn-block btn-sm">Deposit Cash</button>
+    </div>
+</div>
 
 <div>
-    <a ng-click="model.updateUser()" class="btn btn-primary btn-block btn-sm">Update</a>
     <a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>
     <a ng-click="model.unregister()" class="btn btn-danger btn-block btn-sm">Unregister</a>
 </div>
