@@ -7,7 +7,7 @@
         var vm = this;
         
         function init() {
-            ItemService.findItemsBySeller($window.sessionStorage.currentUser._id)
+            ItemService.findItemsBySeller(JSON.parse($window.localStorage.getItem('currentUser'))._id)
                 .then(
                     function (response) {
                         vm.items = response.data;

@@ -18,7 +18,7 @@
                         // console.log("login controller");
                         
                         if (user) {
-                            $window.sessionStorage.currentUser = user;
+                            $window.localStorage.setItem('currentUser', angular.toJson(user));
                             var id = user._id;
                             $location.url("/profile");
                         }

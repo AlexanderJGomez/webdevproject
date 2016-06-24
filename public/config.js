@@ -54,18 +54,23 @@
                 redirectTo: "/home"
             });
 
-        function checkLoggedIn(UserService, $q, $location, $window/*$rootScope*/) {
+        function checkLoggedIn(UserService, $q, $location, $window) {
             var deferred = $q.defer();
             UserService
                 .checkLoggedIn()
                 .then(function(response) {
                         var user = response.data;
-                        if(user == '0') {
+                        if(JSON.parse($window.localStorage.getItem("currentUser"))) {
+                            deferred.resolve()
+                        }
+                        else if(user == '0') {
+                            console.log("Couldn't find user")
                             deferred.reject();
                             $location.url("/home");
                         }
                         else {
-                            $window.sessionStorage.currentUser = user;
+                            $window.localStorage.setItem('currentUser', angular.toJson(user));
+                            console.log(JSON.parse($window.localStorage.getItem("currentUser")));
                             deferred.resolve();
                         }
                     },

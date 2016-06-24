@@ -16,7 +16,7 @@
                     function(response) {
                         var user = response.data;
                         console.log(user);
-                        $window.sessionStorage.currentUser = user;
+                        $window.sessionStorage.setItem('currentUser', angular.toJson(user));
                         $location.url("/profile");
                     },
                     function(err) {

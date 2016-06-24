@@ -11,11 +11,11 @@
         vm.logout = logout;
         vm.addToBalance = addToBalance;
 
-        console.log($window.sessionStorage.currentUser);
+        console.log(JSON.parse($window.localStorage.getItem("currentUser")));
 
 
         function init() {
-            vm.user = $window.sessionStorage.currentUser;
+            vm.user = JSON.parse($window.localStorage.getItem("currentUser"))
         }
         init();
 
@@ -24,7 +24,7 @@
                 .deleteUser(vm.user._id)
                 .then(
                     function(response) {
-                        $window.sessionStorage.currentUser = null;
+                        $window.localStorage.setItem('currentUser', null);
                         $location.url("/home");
                     },
                     function(error){
@@ -67,11 +67,11 @@
                 .logout()
                 .then(
                     function() {
-                        $window.sessionStorage.currentUser = null;
+                        $window.localStorage.setItem('currentUser', null);
                         $location.url("/home");
                     },
                     function() {
-                        $window.sessionStorage.currentUser = null;
+                        $window.localStorage.setItem('currentUser', null);
                         $location.url("/home");
                     }
                 );

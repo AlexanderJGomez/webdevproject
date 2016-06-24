@@ -6,12 +6,11 @@
     function ItemNewController($location, $window, $routeParams, ItemService) {
         var vm = this;
         vm.item = {};
-        vm.item.seller = $window.sessionStorage.currentUser._id;
+        vm.item.seller = JSON.parse($window.localStorage.getItem('currentUser'))._id;
 
         vm.createItem = createItem;
 
         function createItem(item) {
-            item.seller = $window.sessionStorage.currentUser._id;
             ItemService.createItem(item)
                 .then(
                     function (response) {

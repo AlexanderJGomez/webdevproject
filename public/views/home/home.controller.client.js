@@ -3,12 +3,14 @@
         .module("Thrifty")
         .controller("HomeController", HomeController);
 
-    function HomeController($location, $rootScope, ItemService) {
+    function HomeController($location, $window, ItemService) {
         var vm = this;
 
 
         function init() {
-            vm.user = $window.sessionStorage.currentUser;
+            vm.user = JSON.parse($window.localStorage.getItem('currentUser'))
+
+            console.log(JSON.parse($window.localStorage.getItem('currentUser')));
         }
         init();
         vm.enter = enter;
