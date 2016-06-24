@@ -3,15 +3,15 @@
         .module("Thrifty")
         .controller("ItemNewController", ItemNewController);
 
-    function ItemNewController($location, $rootScope, $routeParams, ItemService) {
+    function ItemNewController($location, $window, $routeParams, ItemService) {
         var vm = this;
         vm.item = {};
-        vm.item.seller = $rootScope.currentUser._id;
+        vm.item.seller = $window.sessionStorage.currentUser._id;
 
         vm.createItem = createItem;
 
         function createItem(item) {
-            item.seller = $rootScope.currentUser._id;
+            item.seller = $window.sessionStorage.currentUser._id;
             ItemService.createItem(item)
                 .then(
                     function (response) {

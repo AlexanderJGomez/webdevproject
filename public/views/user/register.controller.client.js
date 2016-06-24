@@ -3,7 +3,7 @@
        .module("Thrifty")
        .controller("RegisterController", RegisterController);
 
-    function RegisterController(UserService, $location) {
+    function RegisterController(UserService, $location, $window) {
         var vm = this;
         vm.user = {};
         vm.register = register;
@@ -15,6 +15,8 @@
                 .then(
                     function(response) {
                         var user = response.data;
+                        console.log(user);
+                        $window.sessionStorage.currentUser = user;
                         $location.url("/profile");
                     },
                     function(err) {

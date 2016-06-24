@@ -56,8 +56,27 @@
                id="last"
                placeholder="Wonderland">
     </div>
+
 </form>
 
-<a ng-click="model.updateUser()" class="btn btn-primary btn-block btn-sm">Update</a>
-<a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>
-<a ng-click="model.unregister()" class="btn btn-danger btn-block btn-sm">Unregister</a>
+<div class="balance">
+    <div>
+        <label for="balance">Balance</label>
+        <input ng-model="model.user.balance"
+               type="number"
+               class="form-control"
+               id="balance" disabled>
+    </div>
+    <div>
+        <input ng-model="model.deposit"
+               type="number">
+        <button ng-click="model.addToBalance()" class="btn btn-primary">Deposit</button>
+    </div>
+</div>
+
+
+<div>
+    <a ng-click="model.updateUser()" class="btn btn-primary btn-block btn-sm">Update</a>
+    <a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>
+    <a ng-click="model.unregister()" class="btn btn-danger btn-block btn-sm">Unregister</a>
+</div>

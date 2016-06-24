@@ -5,10 +5,12 @@
 
     function HomeController($location, $rootScope, ItemService) {
         var vm = this;
-        vm.user = $rootScope.currentUser;
 
-        console.log(vm.user);
 
+        function init() {
+            vm.user = $window.sessionStorage.currentUser;
+        }
+        init();
         vm.enter = enter;
         vm.search = search;
 
