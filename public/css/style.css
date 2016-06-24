@@ -8,6 +8,28 @@ body {
     background-color: rgba(0, 0, 0, 0.005);
 }
 
+@media only screen and (max-width: 600px) {
+    p.navbar-text.pull-right.anchor {
+    /*p.navbar-text.navbar-fixed-top.pull-right.anchor {*/
+        /*background-color: blue !important;*/
+        display: block;
+        position: relative;
+        top: -59.3px;
+        /*visibility: hidden;*/
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    p.navbar-text.pull-right.anchor {
+        /*p.navbar-text.navbar-fixed-top.pull-right.anchor {*/
+        /*background-color: blue !important;*/
+        display: block;
+        position: relative;
+        top: -59.3px;
+        /*visibility: hidden;*/
+    }
+}
+
 /*html {*/
     /*background: url(../images/projecthome.jpg) no-repeat center center fixed !important;*/
     /*-webkit-background-size: cover;*/
@@ -60,6 +82,10 @@ body {
     color: white;
     text-decoration: none;
     cursor: default;
+}
+
+p.navbar-text.pull-right {
+    text-anchor: start;
 }
 
 /*.mybreadcrumb {*/
@@ -133,6 +159,25 @@ p.navbar-text.pull-left {
     padding-right: 5%;
     max-width: 800px;
 }
+
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.item-list-text {
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+
 
 .image-grid {
     display: flex;
