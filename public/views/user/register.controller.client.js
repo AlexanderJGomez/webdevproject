@@ -10,19 +10,21 @@
 
         function register(username, password) {
 
-            UserService
-                .register(username, password)
-                .then(
-                    function(response) {
-                        var user = response.data;
-                        console.log(user);
-                        $rootScope.currentUser = user;
-                        $location.url("/profile");
-                    },
-                    function(err) {
-                        vm.error = err.data;
-                    }
-                );
+            if (username && password) {
+                UserService
+                    .register(username, password)
+                    .then(
+                        function(response) {
+                            var user = response.data;
+                            console.log(user);
+                            $rootScope.currentUser = user;
+                            $location.url("/profile");
+                        },
+                        function(err) {
+                            vm.error = err.data;
+                        }
+                    );
+            }
         }
     }
 })();

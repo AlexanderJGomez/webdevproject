@@ -12,26 +12,45 @@
 </div>
 
 <h2>Register</h2>
-<input ng-model="model.user.username"
-       class="form-control input-sm"
-       placeholder="username"
-       type="text"/>
-<div class="flexbox-container">
-    <div>
-        <input ng-model="model.user.password"
-               class="form-control input-sm"
-               placeholder="password"
-               type="password"/>
+<form id="myForm" name="myForm" novalidate>
+    <input ng-model="model.user.username"
+           name="username"
+           class="form-control input-sm"
+           placeholder="username"
+           type="text" required/>
+    <span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">
+            Username is required
+    </span>
+    <div class="flexbox-container">
+        <div>
+            <input ng-model="model.user.password"
+                   name="password"
+                   class="form-control input-sm"
+                   placeholder="password"
+                   type="password" required/>
+        </div>
+        <span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">
+            Password is required
+        </span>
+        <div>
+            <input ng-model="model.user.password2"
+                   name="password2"
+                   class="form-control input-sm"
+                   placeholder="verify password"
+                   type="password" required/>
+        </div>
+        <span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">
+            Password is required
+        </span>
     </div>
-    <div>
-        <input ng-model="model.user.password2"
-               class="form-control input-sm"
-               placeholder="verify password"
-               type="password"/>
-    </div>
-</div>
+    <span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">
+        All fields are required
+    </span>
 
-<a ng-click="model.register(model.user.username, model.user.password)"
-   class="btn btn-primary btn-block btn-sm">Register</a>
-<a class="btn btn-danger btn-block btn-sm"
-   href="#/login">Cancel</a>
+    <button ng-click="model.register(model.user.username, model.user.password)"
+            ng-disabled="myForm.$invalid"
+            type="submit"
+            class="btn btn-primary btn-block btn-sm">Register</button>
+    <a class="btn btn-danger btn-block btn-sm"
+       href="#/login">Cancel</a>
+</form>

@@ -18,27 +18,28 @@
            class="form-control input-sm"
            placeholder="username"
            type="text" required/>
-    <span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">
-        Username is required
-    </span>
+    <!--<span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">-->
+        <!--Username is required-->
+    <!--</span>-->
     <input ng-model="password"
            name="password"
            class="form-control input-sm"
            placeholder="password"
            type="password" required>
-    <span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">
-        Password is required
-    </span>
-    <span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$invalid">
-        Username and password are required
-    </span>
+    <!--<span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">-->
+        <!--Password is required-->
+    <!--</span>-->
+    <!--<span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$invalid">-->
+        <!--Username and password are required-->
+    <!--</span>-->
     <!--<span ng-show="model.error && myForm.$submitted && myForm.username.$valid && myForm.password.$valid">-->
         <!--{{model.error}}-->
     <!--</span>-->
 
     <button ng-click="model.login(username, password)"
-       type="submit"
-       class="btn btn-primary btn-block btn-sm">Login</button>
+            ng-disabled="myForm.$invalid"
+            type="submit"
+            class="btn btn-primary btn-block btn-sm">Login</button>
     <a class="btn btn-primary btn-block btn-sm"
        href="#/register">Register</a>
 </form>
