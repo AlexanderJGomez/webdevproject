@@ -13,18 +13,6 @@ form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {
     border: .5px solid rgba(230, 0, 20, 0.30);
 }
 
-/*form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {*/
-    /*background-color: rgba(230, 0, 20, 0.10);*/
-    /*border: .5px solid rgba(230, 0, 20, 0.30);*/
-/*}*/
-
-/*form.ng-submitted input.ng-invalid {*/
-    /*background-color: rgba(230, 0, 20, 0.10);*/
-    /*!*border: .5px solid rgba(230, 0, 20, 0.30);*!*/
-/*}*/
-
-/*ng-invalid-required ng-touched"*/
-
 @media only screen and (max-width: 600px) {
     p.navbar-text.pull-right.anchor {
     /*p.navbar-text.navbar-fixed-top.pull-right.anchor {*/
@@ -105,11 +93,6 @@ p.navbar-text.pull-right {
     text-anchor: start;
 }
 
-/*.mybreadcrumb {*/
-    /*font-size: 17pt;*/
-/*}*/
-
-
 #google {
     background-color: salmon;
     border-color: salmon;
@@ -158,9 +141,7 @@ input:disabled {
 }
 
 /*button:disabled {*/
-    /*background-color: blue !important;*/
-    /*border-color: rgba(0, 0, 0, 0.05) !important;*/
-    /*!*cursor:default;*!*/
+    /*opacity: .8 !important;*/
 /*}*/
 
 .flexbox-container {
@@ -231,7 +212,7 @@ input:disabled {
     margin-top: 20px;
 }
 
-/*desktop - image size is set in index.html*/
+/*desktop - image size is set in index.html. search results*/
 .result {
     margin-right: 20px;
     margin-left: 20px;
@@ -254,7 +235,7 @@ input:disabled {
     font-size: 14px;
 }
 
-/*tablet*/
+/*tablet search results*/
 @media only screen and (max-width: 768px) {
     .result {
         margin-right: 15px;
@@ -284,7 +265,7 @@ input:disabled {
     }
 }
 
-/*mobile*/
+/*mobile search results*/
 @media only screen and (max-width: 600px) {
     .result {
         margin-right: 10px;
@@ -314,7 +295,58 @@ input:disabled {
     }
 }
 
+/*desktop itemview*/
+.itemview-image {
+    width: 290px;
+    height: 290px;
+    background-size: auto 100%;
+    background-color: rgba(0,0,0,0);
+    background-position: center; overflow: hidden
+}
+
+.itemview-name {
+    font-size: 19pt;
+}
+
+.itemview-seller {
+    padding-top: -10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.itemviewview {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemview-description {
+    font-size: 14pt;
+}
+
+.itemview-price-cart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.itemview-price {
+    display: flex;
+    flex-direction: row;
+    font-size: 19pt;
+    padding-right: 20px;
+}
+
+
+/*mobile itemview*/
 @media only screen and (max-width: 600px) {
+    .itemview-image {
+        width: 200px;
+        height: 200px;
+        background-size: auto 100%;
+        background-color: rgba(0,0,0,0);
+        background-position: center; overflow: hidden
+    }
+
     .itemview-name {
         font-size: 19pt;
     }
@@ -347,3 +379,4 @@ input:disabled {
         padding-right: 20px;
     }
 }
+
