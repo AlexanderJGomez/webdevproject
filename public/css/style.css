@@ -8,15 +8,15 @@ body {
     background-color: rgba(0, 0, 0, 0.005);
 }
 
-/*form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {*/
-    /*background-color: rgba(230, 0, 20, 0.10);*/
-    /*border: .5px solid rgba(230, 0, 20, 0.30);*/
-/*}*/
-
 form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {
     background-color: rgba(230, 0, 20, 0.10);
     border: .5px solid rgba(230, 0, 20, 0.30);
 }
+
+/*form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {*/
+    /*background-color: rgba(230, 0, 20, 0.10);*/
+    /*border: .5px solid rgba(230, 0, 20, 0.30);*/
+/*}*/
 
 /*form.ng-submitted input.ng-invalid {*/
     /*background-color: rgba(230, 0, 20, 0.10);*/

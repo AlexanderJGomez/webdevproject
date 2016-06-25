@@ -8,9 +8,9 @@
         vm.user = {};
         vm.register = register;
 
-        function register(username, password) {
+        function register(username, password, password2) {
 
-            if (username && password) {
+            if (username && password && (password == password2)) {
                 UserService
                     .register(username, password)
                     .then(
