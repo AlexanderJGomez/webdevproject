@@ -1,13 +1,31 @@
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a ng-click="model.updateItem(model.item)" class="mybutton">
-            </a>
-        </p>
         <p class="navbar-text pull-left">
             <a class="mybutton" href="#/home" class="navbar-link">Home</a>
             <a class="mybreadcrumb">&nbsp/&nbsp {{model.item.name}}</a>
         </p>
+        <div ng-if="model.user">
+            <p class="navbar-text pull-right">
+                <a class="mybutton" href="#/profile" class="navbar-link">
+                    {{model.user.username}}
+                </a>
+                &nbsp·&nbsp
+                <a class="mybutton" href="#/profile/cart" class="navbar-link">
+                    Cart
+                </a>
+            </p>
+        </div>
+        <div ng-if="!model.user">
+            <p class="navbar-text pull-right">
+                <a class="mybutton" href="#/login" class="navbar-link">
+                    Log in
+                </a>
+                &nbsp·&nbsp
+                <a class="mybutton" href="#/register" class="navbar-link">
+                    Sign up
+                </a>
+            </p>
+        </div>
     </div>
 </nav>
 
@@ -16,17 +34,19 @@
 </div>
 
 <br>
-<div style="width: 200px; height: 200px;
-     background-image: url('{{model.item.image}}');
-     background-size: auto 100%; background-color: rgba(0,0,0,0);
-     background-position: center; overflow: hidden">
-</div>
+<!--<div style="width: 200px; height: 200px;-->
+     <!--background-image: url('{{model.item.image}}');-->
+     <!--background-size: auto 100%; background-color: rgba(0,0,0,0);-->
+     <!--background-position: center; overflow: hidden">-->
+<!--</div>-->
+
+<img src="{{model.item.image}}" class="itemview-image"/>
 
 
-<p class="itemview-name">{{model.item.name}}</p>
+<p class="itemview-name"><b>{{model.item.name}}</b></p>
 
-<p class="itemview-seller">-{{model.item.seller}}</p>
-<p class="itemview-seller">{{model.item.seller.username}}</p>
+<p class="itemview-seller">Seller ID: {{model.item.seller}}</p>
+<p class="itemview-seller">Seller Name: {{model.item.seller.username}}</p>
 
 <p class="itemview-description">{{model.item.description}}</p>
 

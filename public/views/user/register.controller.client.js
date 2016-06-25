@@ -8,21 +8,23 @@
         vm.user = {};
         vm.register = register;
 
-        function register(username, password) {
+        function register(username, password, password2) {
 
-            UserService
-                .register(username, password)
-                .then(
-                    function(response) {
-                        var user = response.data;
-                        console.log(user);
-                        $rootScope.currentUser = user;
-                        $location.url("/profile");
-                    },
-                    function(err) {
-                        vm.error = err.data;
-                    }
-                );
+            if (username && password && (password == password2)) {
+                UserService
+                    .register(username, password)
+                    .then(
+                        function(response) {
+                            var user = response.data;
+                            console.log(user);
+                            $rootScope.currentUser = user;
+                            $location.url("/profile");
+                        },
+                        function(err) {
+                            vm.error = err.data;
+                        }
+                    );
+            }
         }
     }
 })();

@@ -7,30 +7,40 @@
     </div>
 </nav>
 
-
-
 <div ng-if="model.error" class="alert alert-danger">
     {{model.error}}
 </div>
 
 <h2>Login</h2>
-<input ng-model="username"
-       class="form-control input-sm"
-       placeholder="username"
-       type="text"/>
-<input ng-model="password"
-       class="form-control input-sm"
-       placeholder="password"
-       type="password">
+<form id="myForm" name="myForm" novalidate>
+    <input ng-model="username"
+           name="username"
+           class="form-control input-sm"
+           placeholder="username"
+           type="text" required/>
+    <!--<span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">-->
+        <!--Username is required-->
+    <!--</span>-->
+    <input ng-model="password"
+           name="password"
+           class="form-control input-sm"
+           placeholder="password"
+           type="password" required>
+    <!--<span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">-->
+        <!--Password is required-->
+    <!--</span>-->
+    <!--<span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$invalid">-->
+        <!--Username and password are required-->
+    <!--</span>-->
+    <!--<span ng-show="model.error && myForm.$submitted && myForm.username.$valid && myForm.password.$valid">-->
+        <!--{{model.error}}-->
+    <!--</span>-->
 
-<a ng-click="model.login(username, password)"
-   class="btn btn-primary btn-block btn-sm">Login</a>
-<a class="btn btn-primary btn-block btn-sm"
-   href="#/register">Register</a>
+    <button ng-click="model.login(username, password)"
+            ng-disabled="myForm.$invalid"
+            type="submit"
+            class="btn btn-primary btn-block btn-sm">Login</button>
+    <a class="btn btn-primary btn-block btn-sm"
+       href="#/register">Register</a>
+</form>
 
-
-
-
-<!--<a href="/auth/google" id="google" class="btn btn-primary btn-block btn-sm">-->
-    <!--<span class="fa fa-google-plus"></span>-->
-    <!--Google</a>-->

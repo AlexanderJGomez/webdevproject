@@ -35,17 +35,19 @@
         
         function updateUser() {
             // console.log("update user");
-            UserService
-                .updateUser(vm.user._id, vm.user)
-                .then(
-                    function(response) {
-                        $rootScope.currentUser = response.data;
-                        vm.success = "User successfully updated";
-                    },
-                    function (error) {
-                        vm.error = error.data;
-                    }
-                )
+            if (vm.user.email) {
+                UserService
+                    .updateUser(vm.user._id, vm.user)
+                    .then(
+                        function(response) {
+                            $rootScope.currentUser = response.data;
+                            vm.success = "User successfully updated";
+                        },
+                        function (error) {
+                            vm.error = error.data;
+                        }
+                    );
+            }
         }
 
         function addToBalance() {

@@ -10,23 +10,25 @@
 
         function login(username, password) {
 
-            UserService
-                .login(username, password)
-                .then(
-                    function(response) {
-                        var user = response.data;
-                        // console.log("login controller");
-                        
-                        if (user) {
-                            $rootScope.currentUser = user;
-                            var id = user._id;
-                            $location.url("/profile");
+            if (username && password) {
+                UserService
+                    .login(username, password)
+                    .then(
+                        function(response) {
+                            var user = response.data;
+                            // console.log("login controller");
+
+                            if (user) {
+                                $rootScope.currentUser = user;
+                                var id = user._id;
+                                $location.url("/profile");
+                            }
+                        },
+                        function(error) {
+                            vm.error = "User not found";
                         }
-                    },
-                    function(error) {
-                        vm.error = "User not found";
-                    }
-                );
+                    );
+            }
         }
     }
 })();

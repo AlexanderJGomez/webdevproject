@@ -18,26 +18,40 @@
     {{model.error}}
 </div>
 
-
-<div ng-show="model.items" class="image-grid">
+<div ng-show="model.items" class="item-list">
     <div ng-repeat="item in model.items">
-        <a href="#/item/{{item._id}}">
-            <div class="result">
-                <div class="result-image"
-                     style="width: 180px; height: 180px;
-                     background-image: url('{{item.image}}');
-                     background-size: auto 100%; background-color: rgba(0,0,0,0);
-                     background-position: center; overflow: hidden">
-                </div>
-                <a class="result-text" href="#/item/{{item._id}}">
-                    {{item.name}}
-                    <div class="result-price">
-                        ${{item.price}}
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="#/item/{{item._id}}">
+                    <div class="flexbox-container">
+                        <div class="result-image"
+                             style="width: 95px; height: 95px; background-image: url('{{item.image}}');
+                             margin-top: 4px; background-size: auto 100%; background-color: rgba(0,0,0,0);
+                             background-position: center; overflow: hidden">
+                        </div>
+                        <div href="#/item/{{item._id}}">
+                            <div class="item-list-name">
+                                {{item.name}} &nbsp&nbsp·&nbsp&nbsp ${{item.price}}
+                                <div class="item-list-description">
+                                    {{item.description}}
+                                </div>
+                            </div>
+                            <div class="result-price">
+                                <!--${{item.price}}-->
+                            </div>
+                        </div>
                     </div>
+                    <div class="flexbox-container">
+                        <div class="item-list-date">
+                            Uploaded: {{item.dateAdded | date}}
+                        </div>
 
+                        <!--{{item.dateAdded | dateAdded:'yyyy-MM-ddTHH:mm:ssZ'}}-->
+
+                    </div>
                 </a>
-            </div>
-        </a>
+            </li>
+        </ul>
     </div>
 </div>
 
