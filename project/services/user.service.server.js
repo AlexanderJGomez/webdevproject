@@ -13,7 +13,8 @@ module.exports = function(app, models) {
     app.get('/api/user/:userId/cart', populateCart);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", authenticate, deleteUser);
-    app.put("/api/user/:userId/cart", addToCart);
+    app.post("/api/user/:userId/cart", addToCart);
+    app.put("/api/user/:userId/cart", removeFromCart);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -21,7 +22,6 @@ module.exports = function(app, models) {
 
 
     function authenticate(req, res, next) {
-        console.log("authenticate");
         if(req.isAuthenticated()) {
             next();
         } else {
@@ -48,7 +48,6 @@ module.exports = function(app, models) {
     }
 
     function localStrategy(username, password, done) {
-        console.log("local strategy");
         userModel
             .findUserByUsername(username)
             .then(
@@ -69,7 +68,6 @@ module.exports = function(app, models) {
         var id = req.params.userId;
         userModel.populateCart(id)
             .then(function(user) {
-                console.log(user);
                 res.json(user);
             },
             function(err) {
@@ -78,8 +76,20 @@ module.exports = function(app, models) {
     }
 
     function addToCart(req, res) {
-        console.log("made it inside server")
         userModel.addToCart(req.params.userId, req.body.itemId)
+            .then(function(user) {
+                console.log(user);
+                res.json(user);
+            },
+            function(err) {
+                res.statusCode(err.message);
+            })
+    }
+    
+    function removeFromCart(req, res) {
+        var userId = req.params.userId;
+        var itemId = req.body.itemId;
+        userModel.removeFromCart(userId, itemId)
             .then(function(user) {
                 res.json(user);
             },
@@ -100,13 +110,11 @@ module.exports = function(app, models) {
     
 
     function login(req, res) {
-        console.log("logged in");
         var user = req.user;
         res.json(user);
     }
 
     function logout(req, res) {
-        console.log("logged out");
         req.logout();
         res.send(200);
     }
@@ -126,7 +134,6 @@ module.exports = function(app, models) {
                 }
                 else {
                     password = bcrypt.hashSync(req.body.password);
-                    console.log("register inside: User Service Server");
                     return userModel.createUser({username: username, password: password});
                 }
                 res.send(200);
@@ -162,7 +169,6 @@ module.exports = function(app, models) {
     }
 
     function deleteUser(req, res) {
-        console.log("delete user");
         var id = req.params.userId;
 
         userModel

@@ -19,7 +19,8 @@
             updateUser: updateUser,
             deleteUser: deleteUser,
             addToCart: addToCart,
-            populateCart: populateCart
+            populateCart: populateCart,
+            removeFromCart: removeFromCart
         };
         return api;
 
@@ -37,12 +38,18 @@
         function logout() {
             return $http.post("/api/logout");
         }
+        
+        function removeFromCart(userId, itemId) {
+            var url = "/api/user/"+userId+"/cart";
+            var itemObj = {itemId: itemId};
+            return $http.put(url, itemObj);
+        }
 
         function addToCart(userId, itemId) {
             var itemIdObj = {itemId: itemId};
             console.log("made it to client service");
             var url = "/api/user/" + userId + "/cart";
-            return $http.put(url, itemIdObj);
+            return $http.post(url, itemIdObj);
         }
 
         function login(username, password) {

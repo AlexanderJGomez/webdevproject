@@ -7,6 +7,7 @@
     
     function CartController($location, UserService, $rootScope) {
         var vm = this;
+        vm.removeFromCart = removeFromCart;
         
         function init() {
 
@@ -15,6 +16,7 @@
                 .then(function(response) {
                     console.log(response.data);
                     vm.cart = response.data.cart;
+                    console.log(vm.cart);
                     vm.total = 0;
                     for(var i = 0; i < vm.cart.length; i++) {
                         vm.total += vm.cart[i].price;
@@ -25,6 +27,24 @@
                 })
         }
         init();
+
+        function removeFromCart(itemId) {
+            UserService.removeFromCart(vm.user._id, itemId)
+                .then(function(response) {
+                    console.log("removed item");
+                    for(var i = 0; i < vm.cart.length; i++) {
+                        if(vm.cart[i]._id = itemId) {
+                            vm.total -= vm.cart[i].price;
+                            vm.cart.splice(i, 1);
+                        }
+                    }
+                    $rootScope.currentUser = response.data;
+                    $location.url("/profile/cart")
+                },
+                function(err) {
+                    console.log(err.message);
+                })
+        }
         
     }
     
