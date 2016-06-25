@@ -11,6 +11,7 @@ module.exports = function(app, models) {
     app.put("/api/item/:itemId", updateItem);
     app.delete("/api/item/:itemId", deleteItem);
     app.post("/api/search", search);
+    app.get("/api/item", getItems);
 
     function createItem(req, res) {
         var item = req.body;
@@ -21,6 +22,16 @@ module.exports = function(app, models) {
             },
             function(err) {
                 res.status(404).send(err.message);
+            })
+    }
+
+    function getItems(req, res) {
+        ItemModel.getItems()
+            .then(function(items) {
+                res.send(items);
+            },
+            function(err) {
+                res.status(404).send("Error getting all items");
             })
     }
 

@@ -14,7 +14,9 @@ module.exports = function() {
         findItemById: findItemById,
         updateItem: updateItem,
         deleteItem: deleteItem,
-        search: search
+        search: search,
+        getItems: getItems,
+        purchaseItems: purchaseItems
     };
 
     return api;
@@ -25,6 +27,14 @@ module.exports = function() {
 
     function findItemsBySeller(id) {
         return Item.find({seller: id});
+    }
+
+    function purchaseItems(cartIds) {
+        return Item.update({'_id': { $in: cartIds}}, {purchased: true}, {multi: true});
+    }
+
+    function getItems() {
+        return Item.find({});
     }
 
     function createItem(item) {

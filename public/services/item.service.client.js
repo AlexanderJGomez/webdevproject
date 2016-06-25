@@ -14,13 +14,18 @@
             findItemById: findItemById,
             updateItem: updateItem,
             deleteItem: deleteItem,
-            search: search
+            search: search,
+            getItems: getItems
         };
         return api;
 
         function createItem(user) {
             var url = "/api/user";
             return $http.post(url, user);
+        }
+
+        function getItems() {
+            return $http.get("/api/item");
         }
 
         function findItemsBySeller(id) {

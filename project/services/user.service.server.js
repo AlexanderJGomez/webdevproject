@@ -1,6 +1,8 @@
 
 module.exports = function(app, models) {
     var userModel = models.userModel;
+    var purchaseModel = models.purchaseModel;
+    var itemModel = models.itemModel;
     var passport = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
     var bcrypt = require('bcrypt-nodejs');
@@ -15,6 +17,7 @@ module.exports = function(app, models) {
     app.delete("/api/user/:userId", authenticate, deleteUser);
     app.post("/api/user/:userId/cart", addToCart);
     app.put("/api/user/:userId/cart", removeFromCart);
+    app.post("/api/user/:userId/purchase", purchase);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -97,6 +100,35 @@ module.exports = function(app, models) {
                 res.statusCode(err.message);
             })
     }
+
+
+    function purchase(req, res) {
+        var id = req.params.userId;
+        var cartIDs = req.body.cart;
+        userModel.purchase()
+            .then(function(user) {
+                console.log("after user model")
+                return itemModel.purchaseItems(cartIDs)
+            },
+            function(err) {
+                res.statusCode(err.message);
+            })
+            .then(function(nums) {
+                console.log("after item model");
+                return purchaseModel.createPurchase(id, cartIDs)
+            },
+            function(err) {
+                res.statusCode(err.message);
+            })
+            .then(function(purchase) {
+                res.json(purchase);
+            })
+        
+    }
+
+
+
+
 
     function getUsers(req, res) {
         userModel.getUsers()

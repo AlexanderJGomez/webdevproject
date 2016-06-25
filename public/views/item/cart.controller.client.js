@@ -8,6 +8,7 @@
     function CartController($location, UserService, $rootScope) {
         var vm = this;
         vm.removeFromCart = removeFromCart;
+        vm.purchase = purchase;
         
         function init() {
 
@@ -44,6 +45,23 @@
                 function(err) {
                     console.log(err.message);
                 })
+        }
+
+        function purchase() {
+            if(vm.total <= vm.user.balance) {
+                vm.error = "Insufficient Funds";
+            }
+            else {
+                vm.error = null;
+                var cartIds = [];
+                for(var i = 0; i < vm.user.cart.length; i++) {
+                    cartIds.push(vm.user.cart[i]._id);
+                }
+                UserService.purchase(vm.userId, cartIds)
+                    .then(function(response) {
+                        $location.url("/profile/purchase")
+                    })
+            }
         }
         
     }

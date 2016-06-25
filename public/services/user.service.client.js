@@ -20,7 +20,8 @@
             deleteUser: deleteUser,
             addToCart: addToCart,
             populateCart: populateCart,
-            removeFromCart: removeFromCart
+            removeFromCart: removeFromCart,
+            purchase: purchase
         };
         return api;
 
@@ -37,6 +38,12 @@
 
         function logout() {
             return $http.post("/api/logout");
+        }
+        
+        function purchase(userId, cart) {
+            var url = "/api/user/"+userId+"/purchase";
+            var cartObj = {cart: cart};
+            return $http.post(url, cartObj);
         }
         
         function removeFromCart(userId, itemId) {
