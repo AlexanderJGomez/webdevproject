@@ -8,6 +8,18 @@ body {
     background-color: rgba(0, 0, 0, 0.005);
 }
 
+/*form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {*/
+    /*background-color: rgba(230, 0, 20, 0.10);*/
+    /*border: .5px solid rgba(230, 0, 20, 0.30);*/
+/*}*/
+
+form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {
+    background-color: rgba(230, 0, 20, 0.10);
+    border: .5px solid rgba(230, 0, 20, 0.30);
+}
+
+/*ng-invalid-required ng-touched"*/
+
 @media only screen and (max-width: 600px) {
     p.navbar-text.pull-right.anchor {
     /*p.navbar-text.navbar-fixed-top.pull-right.anchor {*/
