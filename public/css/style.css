@@ -177,6 +177,23 @@ p.navbar-text.pull-left {
     font-size: 18px;
 }
 
+.item-list-name {
+    font-size: 13pt;
+    margin-left: 6px;
+}
+
+.item-list-description {
+    margin-top: 8px;
+    font-size: 11pt;
+}
+
+.item-list-date {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    font-size: 9pt;
+    font-style: italic;
+}
 
 
 .image-grid {
