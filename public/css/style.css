@@ -172,7 +172,7 @@ p.navbar-text.pull-left {
     padding-top: 3px;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /*width: 100%;*/
     justify-content: space-between;
     font-size: 18px;
 }
