@@ -17,6 +17,9 @@ module.exports = function() {
             type: String,
             enum: ["Tops", "Bottoms", "Footwear", "Outerwear"]
         },
+        purchased: {
+            type: Boolean,
+            default: null},
         seller: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
