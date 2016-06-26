@@ -21,10 +21,6 @@
                     <div class="flexbox-container">
                         <div href="#/purchase/{{purchase._id}}">
                             Purchase ID: {{purchase._id}}
-
-
-
-
                         </div>
                     </div>
                     <div class="flexbox-container">
@@ -40,7 +36,7 @@
 
 <div id="container">
     <br>
-    <h4 ng-show="!model.purchases">
+    <h4 ng-show="!model.purchases.length">
         You have not completed any purchases!
     </h4>
 </div>
