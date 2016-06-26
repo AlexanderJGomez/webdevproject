@@ -11,7 +11,7 @@
             vm.user = $rootScope.currentUser;
 
             ItemService
-                .search("pants")
+                .getItems()
                 .then(
                     function(response) {
                         vm.allItems = response.data;
@@ -33,7 +33,6 @@
             var param = vm.searchParam;
             ItemService.search(param)
                 .then(function(response) {
-                    console.log(response.data);
                     vm.items = response.data;
                     
                     if (vm.items.length == 0) {

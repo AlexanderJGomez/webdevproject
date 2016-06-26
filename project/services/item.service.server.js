@@ -27,12 +27,14 @@ module.exports = function(app, models) {
 
     function getItems(req, res) {
         ItemModel.getItems()
-            .then(function(items) {
-                res.send(items);
-            },
-            function(err) {
-                res.status(404).send("Error getting all items");
-            })
+            .then(
+                function(items) {
+                    console.log(items);
+                    res.send(items);
+                },
+                function(err) {
+                    res.status(404).send("Error getting all items");
+                });
     }
 
     function findItemsBySeller(req, res) {
@@ -41,7 +43,7 @@ module.exports = function(app, models) {
         ItemModel.findItemsBySeller(id)
             .then(
                 function(items) {
-                    res.send(items)
+                    res.send(items);
                 },
                 function(err) {
                     res.status(404).send(err.message);
