@@ -1,6 +1,3 @@
-/**
- * Created by alexgomez on 6/23/16.
- */
 module.exports = function(app, models) {
     var PurchaseModel = models.purchaseModel;
     app.get("/api/user/:userId/purchase", findPurchasesForUser);

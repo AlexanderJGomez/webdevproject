@@ -1,6 +1,3 @@
-/**
- * Created by alexgomez on 6/24/16.
- */
 (function() {
     angular.module("Thrifty")
         .controller("CartController", CartController);
