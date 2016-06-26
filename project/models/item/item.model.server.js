@@ -19,7 +19,7 @@ module.exports = function() {
     return api;
 
     function findItemById(id) {
-        return Item.findById(id);
+        return Item.findById(id).populate('seller', ['username']);
     }
 
     function findItemsBySeller(id) {
