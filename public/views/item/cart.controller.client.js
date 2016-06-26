@@ -46,16 +46,29 @@
 
         function purchase() {
             if(vm.total > vm.user.balance) {
-                vm.error = "Insufficient Funds";
+                vm.error = "Insufficient funds";
             }
             else {
                 vm.error = null;
                 UserService.purchase(vm.user._id, vm.user.cart)
                     .then(function(response) {
                         $rootScope.currentUser.cart = [];
-                        console.log("purchase complete")
-                        $location.url("/profile/purchases")
+                        vm.user.balance -= vm.total;
+                        console.log("purchase complete");
+                        $location.url("/profile/purchases");
+
+                        return UserService.updateUser(vm.user._id, vm.user)
                     })
+                    .then(
+                        function(response) {
+                            $rootScope.currentUser = response.data;
+                        },
+                        function(error) {
+                            vm.error = error.data;
+                        }
+                    );
+
+
             }
         }
         
