@@ -4,7 +4,6 @@
 module.exports = function() {
 
     var mongoose = require("mongoose");
-    var mts = require("mongoose-text-search");
 
     var ItemSchema = mongoose.Schema({
         name: {
@@ -28,7 +27,6 @@ module.exports = function() {
         image: String,
         dateAdded: {type: Date, default: Date.now}
     }, {collection: "project.item"});
-    ItemSchema.plugin(mts);
     ItemSchema.index({ name: 'text', description: 'text'}, {name: 'My text index', weights: {name: 3, description: 1}});
     return ItemSchema;
 };

@@ -14,7 +14,12 @@
                 .getItems()
                 .then(
                     function(response) {
-                        vm.allItems = response.data;
+                        vm.allItems = [];
+                        for(var i = 0; i < response.data.length; i++) {
+                            if(!response.data[i].purchased) {
+                                vm.allItems.push(response.data[i]);
+                            }
+                        }
                         vm.numItems = vm.allItems.length;
                     },
                     function(err) {
@@ -36,10 +41,11 @@
                 ItemService.search(param)
                     .then(
                         function(response) {
-                            vm.items = response.data;
-                            console.log(vm.items);
-                            if (vm.items.length == 0) {
-                                vm.emptyItems = true;
+                            vm.items = [];
+                            for(var i = 0; i < response.data.length; i++) {
+                                if(!response.data[i].purchased) {
+                                    vm.items.push(response.data[i]);
+                                }
                             }
                             vm.numItems = vm.items.length;
                         },

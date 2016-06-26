@@ -68,6 +68,7 @@ module.exports = function(app, models) {
     function search(req, res) {
         ItemModel.search(req.body.search)
             .then(function(items) {
+                console.log(items);
                 res.send(items);
             },
             function(err) {
