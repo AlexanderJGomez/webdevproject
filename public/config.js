@@ -57,6 +57,12 @@
                 controllerAs: "model",
                 resolve: {loggedin : checkLoggedIn}
             })
+            .when("/profile/purchases", {
+                templateUrl: "views/purchase/purchase-list.view.client.html",
+                controller:"PurchaseListController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });

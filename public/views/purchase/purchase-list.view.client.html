@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
+    <div class="container-fluid">
+        <p class="navbar-text pull-left">
+            <a class="mybutton" href="#/home" class="navbar-link">Home</a>
+            &nbsp/&nbsp
+            <a class="mybutton" href="#/profile" class="navbar-link">Profile</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp Purchases</a>
+        </p>
+    </div>
+</nav>
+
+<div ng-if="model.error" class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<div ng-show="model.purchases" class="item-list">
+    <div ng-repeat="purchase in model.purchases">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="#/purchase/{{purchase._id}}">
+                    <div class="flexbox-container">
+                        <div href="#/purchase/{{purchase._id}}">
+                            Purchase ID: {{purchase._id}}
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="flexbox-container">
+                        <div>
+                            Completed: {{purchase.dateCreated | date}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="container">
+    <br>
+    <h4 ng-show="!model.purchases">
+        You have not completed any purchases!
+    </h4>
+</div>
