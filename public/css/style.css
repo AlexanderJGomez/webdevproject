@@ -22,6 +22,10 @@ form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid {
         top: -59.3px;
         /*visibility: hidden;*/
     }
+
+    #tagline {
+        -top: 0px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -102,11 +106,41 @@ h2, h4, h5{
     text-align: center;
 }
 
-#help {
-    position: relative;
-    vertical-align: middle;
-    color: white;
-    font-size: 13pt;
+@media only screen and (max-width: 768px) {
+    #tagline {
+        margin-top: 20px;
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #help {
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 11pt;
+    }
+}
+
+
+@media only screen and (max-width: 2000px) {
+    #tagline {
+        margin-top: 200px;
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #help {
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 13pt;
+    }
 }
 
 #image {
@@ -118,13 +152,22 @@ h2, h4, h5{
     z-index: -1;
 }
 
-#tagline {
-    margin-top: 200px;
-    position: relative;
-    vertical-align: middle;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
+@media only screen and (max-width: 600px) {
+    #tagline {
+        margin-top: 20px;
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #help {
+        position: relative;
+        vertical-align: middle;
+        color: white;
+        font-size: 11pt;
+    }
 }
 
 p.navbar-text.pull-right {
