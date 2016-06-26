@@ -18,6 +18,7 @@ module.exports = function(app, models) {
     app.post("/api/user/:userId/cart", addToCart);
     app.put("/api/user/:userId/cart", removeFromCart);
     app.post("/api/user/:userId/purchase", purchase);
+    app.get("/api/user/:userId/purchase", getPurchases);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -105,7 +106,8 @@ module.exports = function(app, models) {
     function purchase(req, res) {
         var id = req.params.userId;
         var cartIDs = req.body.cart;
-        userModel.purchase()
+        console.log(cartIDs)
+        userModel.purchase(id)
             .then(function(user) {
                 console.log("after user model")
                 return itemModel.purchaseItems(cartIDs)
@@ -127,6 +129,17 @@ module.exports = function(app, models) {
     }
 
 
+
+    function getPurchases(req, res) {
+        var id = req.params.userId;
+        purchaseModel.findPurchasesForUser(id)
+            .then(function(purchases) {
+                res.send(purchases);
+            },
+            function(err) {
+                res.statusCode(401).sendStatus("Could not get purchases");
+            })
+    }
 
 
 

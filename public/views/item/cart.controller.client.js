@@ -48,18 +48,16 @@
         }
 
         function purchase() {
-            if(vm.total <= vm.user.balance) {
+            if(vm.total > vm.user.balance) {
                 vm.error = "Insufficient Funds";
             }
             else {
                 vm.error = null;
-                var cartIds = [];
-                for(var i = 0; i < vm.user.cart.length; i++) {
-                    cartIds.push(vm.user.cart[i]._id);
-                }
-                UserService.purchase(vm.userId, cartIds)
+                UserService.purchase(vm.user._id, vm.user.cart)
                     .then(function(response) {
-                        $location.url("/profile/purchase")
+                        $rootScope.currentUser.cart = [];
+                        console.log("purchase complete")
+                        $location.url("/profile/purchases")
                     })
             }
         }

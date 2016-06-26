@@ -14,7 +14,8 @@ module.exports = function() {
         updateUser: updateUser,
         addToCart: addToCart,
         populateCart: populateCart,
-        removeFromCart: removeFromCart
+        removeFromCart: removeFromCart,
+        purchase: purchase
     };
 
     return api;
@@ -25,6 +26,11 @@ module.exports = function() {
 
     function createUser(user) {
         return User.create(user);
+    }
+    
+    function purchase(id) {
+        console.log("In purchase in user");
+        return User.findByIdAndUpdate(id, {cart: []});
     }
     
     function addToCart(userId, itemId) {

@@ -49,6 +49,7 @@ module.exports = function() {
 
     function updateItem(id, newItem) {
         console.log(newItem);
+        delete newItem._id;
         return Item.findByIdAndUpdate(id, newItem);
     }
     

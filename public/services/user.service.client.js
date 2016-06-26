@@ -21,7 +21,8 @@
             addToCart: addToCart,
             populateCart: populateCart,
             removeFromCart: removeFromCart,
-            purchase: purchase
+            purchase: purchase,
+            getPurchases: getPurchases
         };
         return api;
 
@@ -44,6 +45,11 @@
             var url = "/api/user/"+userId+"/purchase";
             var cartObj = {cart: cart};
             return $http.post(url, cartObj);
+        }
+
+        function getPurchases(id) {
+            var url = "/api/user/" + id + "/purchase";
+            return $http.get(url);
         }
         
         function removeFromCart(userId, itemId) {
