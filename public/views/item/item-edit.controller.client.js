@@ -14,7 +14,13 @@
                 ItemService.findItemById(id)
                     .then(
                         function(response) {
-                            vm.item = response.data;
+                            if(response.data.seller == $rootScope.currentUser._id) {
+                                vm.item = response.data;
+                            }
+                            else {
+                                $location.url("/home");
+                            }
+
                         });
 
             } else {

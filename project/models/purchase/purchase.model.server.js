@@ -6,8 +6,8 @@ module.exports = function() {
 
     var api = {
         findPurchasesForUser: findPurchasesForUser,
-        createPurchase: createPurchase
-    };
+        createPurchase: createPurchase,
+        populatePurchase: populatePurchase   };
     return api;
 
     function findPurchasesForUser(id) {
@@ -16,5 +16,9 @@ module.exports = function() {
 
     function createPurchase(userId, items) {
         return Purchase.create({user: userId, items: items})
+    }
+    
+    function populatePurchase(id) {
+        return Purchase.findById(id).populate("items");
     }
 }

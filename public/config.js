@@ -63,6 +63,12 @@
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })
+            .when("/profile/purchases/:purchaseId", {
+                templateUrl: "views/purchase/purchase.view.client.html",
+                controller:"PurchaseController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });
