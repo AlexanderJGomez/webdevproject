@@ -19,7 +19,7 @@ module.exports = function() {
     return api;
 
     function findItemById(id) {
-        return Item.findById(id).populate('seller', ['username']);
+        return Item.findById(id).populate('seller');
     }
 
     function findItemsBySeller(id) {
@@ -31,7 +31,7 @@ module.exports = function() {
     }
 
     function getItems() {
-        return Item.find({}).populate("seller", ['username']);
+        return Item.find({});
     }
 
     function createItem(item) {
@@ -56,7 +56,6 @@ module.exports = function() {
                 { $text : { $search : searchParameter } },
                 { score : { $meta: "textScore" } }
             )
-            .sort({ score : { $meta : 'textScore' } })
-            .populate("seller", ["username"]);
+            .sort({ score : { $meta : 'textScore' } });
     }
 };

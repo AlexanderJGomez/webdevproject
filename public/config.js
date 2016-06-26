@@ -69,6 +69,11 @@
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })
+            .when("/user/:userId", {
+                templateUrl: "views/user/public-profile.view.client.html",
+                controller: "PublicProfileController",
+                resolve: {logedin: checkLoggedIn}
+            })
             .otherwise({
                 redirectTo: "/home"
             });

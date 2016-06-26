@@ -1,8 +1,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <!--<a class="mybutton" href="#/profile/listings" class="navbar-link">Listings</a>-->
-            <!--&nbsp·&nbsp-->
+            <a class="mybutton" href="#/profile" class="navbar-link">{{model.user.username}}</a>
+            &nbsp·&nbsp
             <a class="mybutton" href="#/profile/cart" class="navbar-link">Cart</a>
         </p>
         <p class="navbar-text pull-left">
@@ -19,84 +19,39 @@
     {{model.success}}
 </div>
 
-<form id="myForm" name="myForm" novalidate>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <div class="form-group">
-            <input ng-model="model.user.username"
-                   type="text"
-                   class="form-control input-sm"
-                   id="username"
-                   placeholder="awonderland65" disabled/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="email">Email address</label>
-        <input ng-model="model.user.email"
-               type="email"
-               class="form-control input-sm"
-               id="email"
-               placeholder="alice@wonderland.com">
-    </div>
-    <div class="flexbox-container">
-        <div class="form-group">
-            <label for="first">First Name</label>
-            <input ng-model="model.user.firstName"
-                   type="text"
-                   class="form-control input-sm"
-                   id="first"
-                   placeholder="Alice">
-        </div>
-        <div class="form-group">
-            <label for="last">Last Name</label>
-            <input ng-model="model.user.lastName"
-                   type="text"
-                   class="form-control input-sm"
-                   id="last"
-                   placeholder="Wonderland">
-        </div>
-    </div>
-</form>
+{{model.user.username}}
 
-<label for="balance">Balance</label>
-<div class="flexbox-container">
-    <div class="input-group">
-        <span class="input-group-addon input-sm">$</span>
-        <input ng-model="model.user.balance"
-               type="number"
-               min="0.01"
-               max="99999"
-               class="form-control input-sm"
-               id="balance" disabled>
-    </div>
-    <div class="deposit-group form-group">
-        <input ng-model="model.deposit"
-               class="form-control input-sm"
-               placeholder="15"
-               type="number">
-    </div>
-</div>
+<p>
+    <label for="username">Username</label>
+    <p id="username">{{model.seller.username}}</p>
 
-<div class="flexbox-container">
-    <div>
-        <button ng-click="model.updateUser()"
-                form="myForm"
-                ng-disabled="myForm.$invalid"
-                class="btn btn-primary btn-block btn-sm">Update Profile</button>
-    </div>
-    <div>
-        <button ng-click="model.addToBalance()" class="btn btn-success btn-block btn-sm">Deposit Cash</button>
-    </div>
-</div>
+    <label for="name">Name</label>
+    <p id="name">{{model.seller.firstName}} {{model.seller.lastName}}</p>
 
-<div>
-    <a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>
-    <div class="flexbox-container">
-        <div>
-            <a href="#/profile/purchases" class="btn btn-link btn-sm">Purchase History</a>
-        </div>
-        <div style="text-align: right">
-            <a ng-click="model.unregister()" class="btn btn-link btn-sm">Unregister</a>
-        </div>
-    </div>
-</div>
+    <label for="email">Contact</label>
+    <p id="email">{{model.seller.email}}</p>
+</p>
+
+<!--<div class="flexbox-container">-->
+    <!--<div>-->
+        <!--<button ng-click="model.updateUser()"-->
+                <!--form="myForm"-->
+                <!--ng-disabled="myForm.$invalid"-->
+                <!--class="btn btn-primary btn-block btn-sm">Update Profile</button>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<button ng-click="model.addToBalance()" class="btn btn-success btn-block btn-sm">Deposit Cash</button>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div>-->
+    <!--<a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>-->
+    <!--<div class="flexbox-container">-->
+        <!--<div>-->
+            <!--<a href="#/profile/purchases" class="btn btn-link btn-sm">Purchase History</a>-->
+        <!--</div>-->
+        <!--<div style="text-align: right">-->
+            <!--<a ng-click="model.unregister()" class="btn btn-link btn-sm">Unregister</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
