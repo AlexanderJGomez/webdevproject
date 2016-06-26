@@ -50,24 +50,12 @@
 <h5 id="help">Search below, or sign in to sell your items</h5>
 <br>
 
-<div id="myForm" name="myForm" class="input-group input-group-md">
+<form id="myForm" name="myForm" class="input-group input-group-md">
     <input ng-model="model.searchParam" type="search" placeholder="search" class="form-control">
         <span class="input-group-btn">
-            <button ng-click="model.search()" class="btn btn-info" type="submit">Explore</button>
+            <button ng-click="model.search()" id="search-button" class="btn btn-info" type="submit">Explore</button>
         </span>
-</div>
-
-<!--<div ng-if="model.emptyItems" class="alert alert-danger"-->
-     <!--style="color: white; font-size: 12pt; font-style: italic;">-->
-    <!--No results matching your query-->
-<!--</div>-->
-
-<!--<div class="btn-group btn-group-sm" role="group">-->
-    <!--<button type="button" class="btn btn-default">Tops</button>-->
-    <!--<button type="button" class="btn btn-default">Bottoms</button>-->
-    <!--<button type="button" class="btn btn-default">Footwear</button>-->
-    <!--<button type="button" class="btn btn-default">Outerwear</button>-->
-<!--</div>-->
+</form>
 
 <div ng-show="model.items" class="image-grid">
     <div ng-repeat="item in model.items">
@@ -84,14 +72,22 @@
                     <div class="result-price">
                         ${{item.price}}
                     </div>
-
                 </a>
             </div>
         </a>
     </div>
 </div>
 
-<div ng-show="model.allItems" class="image-grid">
+<!--<div ng-if="model.emptyItems && myForm.$submitted" class="alert alert-danger"-->
+     <!--style="color: white; font-size: 12pt; font-style: italic;">-->
+    <!--No results matching your query-->
+<!--</div>-->
+<div ng-show="!myForm.$submitted" form="myForm" class="store-quantity">
+    There are currently {{model.numItems}} items being sold
+</div>
+
+
+<div ng-hide="model.items" class="image-grid">
     <div ng-repeat="item in model.allItems">
         <a href="#/item/{{item._id}}/view">
             <div class="result">

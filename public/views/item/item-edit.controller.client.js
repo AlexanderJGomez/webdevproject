@@ -12,9 +12,10 @@
         function init() {
             if(id) {
                 ItemService.findItemById(id)
-                    .then(function(response) {
-                        vm.item = response.data;
-                    })
+                    .then(
+                        function(response) {
+                            vm.item = response.data;
+                        });
 
             } else {
                 vm.item = {};
@@ -24,7 +25,6 @@
 
 
         function updateItem(item) {
-            // console.log(item);
             ItemService.updateItem(id, item)
                 .then(
                     function(response) {

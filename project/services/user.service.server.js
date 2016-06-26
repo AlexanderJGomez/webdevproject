@@ -1,4 +1,3 @@
-
 module.exports = function(app, models) {
     var userModel = models.userModel;
     var purchaseModel = models.purchaseModel;
