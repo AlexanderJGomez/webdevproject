@@ -15,7 +15,7 @@
                 .then(
                     function(response) {
                         vm.allItems = response.data;
-                        vm.numItems = response.data.length + 1;
+                        vm.numItems = vm.allItems.length;
                     },
                     function(err) {
                         console.log(err.message);
@@ -32,7 +32,6 @@
 
         function search() {
             var param = vm.searchParam;
-
             if (param) {
                 ItemService.search(param)
                     .then(
@@ -42,6 +41,7 @@
                             if (vm.items.length == 0) {
                                 vm.emptyItems = true;
                             }
+                            vm.numItems = vm.items.length;
                         },
                         function(err) {
                             console.log(err.message);
