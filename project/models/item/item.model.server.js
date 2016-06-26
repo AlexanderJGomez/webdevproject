@@ -56,6 +56,6 @@ module.exports = function() {
                 { $text : { $search : searchParameter } },
                 { score : { $meta: "textScore" } }
             )
-            .sort({ score : { $meta : 'textScore' } });
+            //.sort({ score : { $meta : 'textScore' } });
     }
 };
