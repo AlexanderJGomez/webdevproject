@@ -5,10 +5,15 @@
 
     function PublicProfileController($location, $rootScope, $routeParams, UserService) {
         var vm = this;
-        console.log($rootScope.currentUser);
+        var userId = $routeParams.userId;
+        console.log("In here kid");
 
         function init() {
-            vm.user = $rootScope.currentUser;
+            UserService.findUserById(userId)
+                .then(function (response) {
+                    console.log(response.data);
+                    vm.seller = response.data;
+                })
         }
         init();
     }

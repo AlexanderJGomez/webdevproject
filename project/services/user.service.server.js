@@ -18,6 +18,7 @@ module.exports = function(app, models) {
     app.put("/api/user/:userId/cart", removeFromCart);
     app.post("/api/user/:userId/purchase", purchase);
     app.get("/api/user/:userId/purchase", getPurchases);
+    app.get("/api/user/:userId", findUserById);
 
     passport.use('wam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -98,6 +99,18 @@ module.exports = function(app, models) {
             },
             function(err) {
                 res.statusCode(err.message);
+            })
+    }
+
+
+    function findUserById(req, res) {
+        var id = req.params.userId;
+        userModel.findUserById(id)
+            .then(function (user) {
+                res.json(user);
+            },
+            function(err) {
+                res.status(401).send("Could not find user");
             })
     }
 
