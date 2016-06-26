@@ -14,7 +14,7 @@
                 ItemService.findItemById(id)
                     .then(
                         function(response) {
-                            if(response.data.seller == $rootScope.currentUser._id) {
+                            if(response.data.seller._id == $rootScope.currentUser._id) {
                                 vm.item = response.data;
                             }
                             else {

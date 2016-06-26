@@ -108,6 +108,8 @@ module.exports = function(app, models) {
     }
 
     function uploadImage(req, res) {
+        console.log("In upload")
+
         var itemId      = req.body.itemId;
         var myFile        = req.file;
         var newItem = {};
@@ -119,22 +121,30 @@ module.exports = function(app, models) {
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
 
+        if(!originalname)
+            res.status(401).send("No image added")
+            return;
+
         newItem.image = "/uploads/"+filename;
         newItem.seller = req.body.seller;
         newItem.description = req.body.description;
         newItem.name = req.body.name;
         newItem.price = req.body.price;
-
+        console.log("In upload 2")
+        console.log(newItem)
         if(itemId) {
+            console.log("in update")
             ItemModel.updateItem(itemId, newItem)
                 .then(function(item) {
-                        res.redirect("/item/"+itemId);
+                        console.log("Yo");
+                        res.redirect("/profile/listings");
                     },
                     function(err) {
                         res.status(404).send("Error updating item");
                     })
         }
         else {
+            console.log("in new")
             ItemModel.createItem(newItem)
                 .then(function(item) {
                         res.redirect("/#/item/"+item._id);

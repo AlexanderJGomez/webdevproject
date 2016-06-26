@@ -60,14 +60,6 @@
                placeholder="Image URL" disabled>
     </div>
 
-    <!--<div class="form-group">-->
-        <!--<label for="item-price">Item Image</label>-->
-        <!--<input ng-model="model.item.image"-->
-               <!--id="item-image"-->
-               <!--type="text"-->
-               <!--class="form-control"-->
-               <!--placeholder="Image">-->
-    <!--</div>-->
 
     <div class="form-group">
         <form action="/api/upload" method="post" enctype="multipart/form-data">
@@ -76,8 +68,8 @@
             <input  name="seller" value="{{model.item.seller}}"   style="display: none"/>
             <button type="submit"   class="btn btn-primary btn-block btn-sm">Upload Image</button>
         </form>
-        <a ng-click="model.deleteItem()"
-           class="btn btn-danger btn-block btn-sm">Delete</a>
     </div>
+    <a ng-click="model.deleteItem()"
+       class="btn btn-danger btn-block btn-sm">Delete</a>
 
 </form>

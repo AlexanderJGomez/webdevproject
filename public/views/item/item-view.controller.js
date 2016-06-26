@@ -14,7 +14,6 @@
                 ItemService.findItemById(id)
                     .then(function(response) {
                         vm.item = response.data;
-                        console.log(vm.item)
                     })
             } else {
                 vm.item = {};

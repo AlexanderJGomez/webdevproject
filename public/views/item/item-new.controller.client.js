@@ -11,7 +11,9 @@
         vm.createItem = createItem;
 
         function createItem(item) {
-            if (item.name && item.description && item.price) {
+            if(true)
+                vm.error = "Please upload an image of your item";
+            else if (item.name && item.description && item.price) {
                 ItemService.createItem(item)
                     .then(
                         function (response) {
