@@ -15,6 +15,7 @@
                 .then(
                     function(response) {
                         vm.allItems = response.data;
+                        vm.numItems = response.data.length + 1;
                     },
                     function(err) {
                         console.log(err.message);

@@ -50,13 +50,12 @@
 <h5 id="help">Search below, or sign in to sell your items</h5>
 <br>
 
-<div id="myForm" name="myForm" class="input-group input-group-md">
+<form id="myForm" name="myForm" class="input-group input-group-md">
     <input ng-model="model.searchParam" type="search" placeholder="search" class="form-control">
         <span class="input-group-btn">
             <button ng-click="model.search()" id="search-button" class="btn btn-info" type="submit">Explore</button>
         </span>
-</div>
-
+</form>
 
 <div ng-show="model.items" class="image-grid">
     <div ng-repeat="item in model.items">
@@ -79,19 +78,24 @@
     </div>
 </div>
 
-<div ng-if="model.emptyItems && myForm.$submitted" class="alert alert-danger"
-     style="color: white; font-size: 12pt; font-style: italic;">
-    No results matching your query
+<!--<div ng-if="model.emptyItems && myForm.$submitted" class="alert alert-danger"-->
+     <!--style="color: white; font-size: 12pt; font-style: italic;">-->
+    <!--No results matching your query-->
+<!--</div>-->
+<div ng-show="!myForm.$submitted" form="myForm" class="store-quantity">
+    There are currently {{model.numItems}} items being sold
 </div>
+
+
 <div ng-hide="model.items" class="image-grid">
     <div ng-repeat="item in model.allItems">
         <a href="#/item/{{item._id}}/view">
             <div class="result">
                 <div class="result-image"
                      style="width: 180px; height: 180px;
-                 background-image: url('{{item.image}}');
-                 background-size: auto 100%; background-color: rgba(0,0,0,0);
-                 background-position: center; overflow: hidden">
+                     background-image: url('{{item.image}}');
+                     background-size: auto 100%; background-color: rgba(0,0,0,0);
+                     background-position: center; overflow: hidden">
                 </div>
                 <a class="result-text" href="#/item/{{item._id}}/view">
                     {{item.name}}
