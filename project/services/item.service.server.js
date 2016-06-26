@@ -71,7 +71,7 @@ module.exports = function(app, models) {
                 res.send(items);
             },
             function(err) {
-                res.status(401).send("Could not complete search");
+                res.status(401).send(err.data);
             })
     }
 
