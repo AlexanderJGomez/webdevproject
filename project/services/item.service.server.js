@@ -5,7 +5,7 @@ module.exports = function(app, models) {
 
 
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
-    app.post("/api/user", createItem);
+    app.post("/api/item", createItem);
     app.get("/api/user/:userId/listings", findItemsBySeller);
     app.get("/api/item/:itemId", findItemById);
     app.put("/api/item/:itemId", updateItem);

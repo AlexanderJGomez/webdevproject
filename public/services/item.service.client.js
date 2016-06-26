@@ -16,9 +16,9 @@
         };
         return api;
 
-        function createItem(user) {
-            var url = "/api/user";
-            return $http.post(url, user);
+        function createItem(item) {
+            var url = "/api/item";
+            return $http.post(url, item);
         }
 
         function getItems() {
