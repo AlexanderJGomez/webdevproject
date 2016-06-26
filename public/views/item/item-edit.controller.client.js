@@ -25,15 +25,19 @@
 
 
         function updateItem(item) {
-            ItemService.updateItem(id, item)
-                .then(
-                    function(response) {
-                        $location.url("/profile/listings");
-                    },
-                    function(err) {
-                        vm.error = "error updating item"
-                    }
-                );
+            if (item.name && item.description && item.price) {
+                ItemService.updateItem(id, item)
+                    .then(
+                        function (response) {
+                            $location.url("/profile/listings");
+                        },
+                        function (err) {
+                            vm.error = "error updating item"
+                        }
+                    );
+            } else {
+                vm.error = "Please fill out all fields"
+            }
         }
 
         function deleteItem() {
