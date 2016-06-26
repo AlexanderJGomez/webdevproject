@@ -11,15 +11,19 @@
         vm.createItem = createItem;
 
         function createItem(item) {
-            ItemService.createItem(item)
-                .then(
-                    function (response) {
-                        $location.url("/profile/listings");
-                    },
-                    function (err) {
-                        vm.error = "Error creating item";
-                    }
-                );
+            if (item.name && item.description && item.price) {
+                ItemService.createItem(item)
+                    .then(
+                        function (response) {
+                            $location.url("/profile/listings");
+                        },
+                        function (err) {
+                            vm.error = "Error creating item";
+                        }
+                    );
+            } else {
+                vm.error = "Please fill out all fields"
+            }
         }
     }
 })();
