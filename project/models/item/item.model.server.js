@@ -31,7 +31,7 @@ module.exports = function() {
     }
 
     function getItems() {
-        return Item.find({});
+        return Item.find({}).populate("seller", ['username']);
     }
 
     function createItem(item) {
@@ -56,6 +56,7 @@ module.exports = function() {
                 { $text : { $search : searchParameter } },
                 { score : { $meta: "textScore" } }
             )
-            .sort({ score : { $meta : 'textScore' } });
+            .sort({ score : { $meta : 'textScore' } })
+            .populate("seller", ["username"]);
     }
 };
