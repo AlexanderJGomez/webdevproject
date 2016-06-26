@@ -9,7 +9,6 @@
         vm.register = register;
 
         function register(username, password, password2) {
-
             if (username && password && (password == password2)) {
                 UserService
                     .register(username, password)
@@ -24,6 +23,8 @@
                             vm.error = err.data;
                         }
                     );
+            } else if (password != password2) {
+                vm.error = "Both passwords need to match";
             }
         }
     }

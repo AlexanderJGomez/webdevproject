@@ -25,30 +25,23 @@
         <div>
             <input ng-model="model.user.password"
                    name="password"
+                   id="password"
                    class="form-control input-sm"
                    placeholder="password"
                    type="password" required/>
         </div>
-        <!--<span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">-->
-            <!--Password is required-->
-        <!--</span>-->
         <div>
             <input ng-model="model.user.password2"
                    name="password2"
+                   id="password2"
                    class="form-control input-sm"
                    placeholder="verify password"
                    type="password" required/>
         </div>
-        <!--<span ng-show="myForm.$submitted && myForm.password.$invalid && myForm.username.$valid">-->
-            <!--Password is required-->
-        <!--</span>-->
     </div>
-    <!--<span ng-show="myForm.$submitted && myForm.username.$invalid && myForm.password.$valid">-->
-        <!--All fields are required-->
+    <!--<span ng-show="myForm.password != myForm.password2 && myForm.$submitted">-->
+        <!--Both passwords fields must match-->
     <!--</span>-->
-    <span ng-show="myForm.$submitted && myForm.password != myForm.password2">
-        Both passwords fields must match
-    </span>
 
     <button ng-click="model.register(model.user.username, model.user.password, model.user.password2)"
             ng-disabled="myForm.$invalid"

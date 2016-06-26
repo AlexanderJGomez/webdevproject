@@ -32,17 +32,21 @@
 
         function search() {
             var param = vm.searchParam;
-            ItemService.search(param)
-                .then(function(response) {
-                    vm.items = response.data;
-                    
-                    if (vm.items.length == 0) {
-                        vm.emptyItems = true;
-                    }
-                },
-                function(err) {
-                    console.log(err.message);
-                })
+
+            if (param) {
+                ItemService.search(param)
+                    .then(
+                        function(response) {
+                            vm.items = response.data;
+
+                            if (vm.items.length == 0) {
+                                vm.emptyItems = true;
+                            }
+                        },
+                        function(err) {
+                            console.log(err.message);
+                        });
+            }
         }
     }
 })();
