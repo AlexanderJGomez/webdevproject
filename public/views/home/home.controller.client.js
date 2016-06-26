@@ -37,14 +37,14 @@
                     .then(
                         function(response) {
                             vm.items = response.data;
-
+                            console.log(vm.items);
                             if (vm.items.length == 0) {
                                 vm.emptyItems = true;
                             }
                             vm.numItems = vm.items.length;
                         },
                         function(err) {
-                            console.log(err.message);
+                            console.log(err.data);
                         });
             }
         }
