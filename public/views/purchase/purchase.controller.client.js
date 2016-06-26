@@ -16,6 +16,10 @@
                     console.log("SUP")
                     if(response.data.user == vm.user._id) {
                         vm.purchase = response.data;
+                        vm.total = 0;
+                        for(var i = 0; i < vm.purchase.items.length; i++) {
+                            vm.total += vm.purchase.items[i].price;
+                        }
                         console.log("HEY")
                     }
                     else {
