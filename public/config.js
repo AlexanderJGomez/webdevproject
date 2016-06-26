@@ -72,7 +72,8 @@
             .when("/user/:userId", {
                 templateUrl: "views/user/public-profile.view.client.html",
                 controller: "PublicProfileController",
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {loggedin: validateUser}
             })
             .otherwise({
                 redirectTo: "/home"

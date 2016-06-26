@@ -13,6 +13,7 @@
                 .then(function (response) {
                     console.log(response.data);
                     vm.seller = response.data;
+                    
                 })
         }
         init();

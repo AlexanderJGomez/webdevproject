@@ -1,13 +1,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top mike-navbar">
     <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a class="mybutton" href="#/profile" class="navbar-link">{{model.user.username}}</a>
-            &nbsp·&nbsp
-            <a class="mybutton" href="#/profile/cart" class="navbar-link">Cart</a>
-        </p>
         <p class="navbar-text pull-left">
             <a class="mybutton" href="#/home" class="navbar-link">Home</a>
-            <a class="mybreadcrumb">&nbsp/&nbsp {{}}</a>
+            <a class="mybreadcrumb">&nbsp/&nbsp {{model.seller.username}}</a>
         </p>
     </div>
 </nav>
@@ -19,38 +14,18 @@
     {{model.success}}
 </div>
 
-
 <p>
-    <label for="username">Username</label>
-    <p id="username">{{model.seller.username}}</p>
+    <div>
+        <label>Username: </label>  {{model.seller.username}}
+    </div>
+    <div ng-show="model.seller.firstName || model.seller.lastName">
+        <label>Name: </label>  {{model.seller.firstName}} {{model.seller.lastName}}
+    </div>
+    <div ng-show="model.seller.email">
+        <label>Contact: </label>  {{model.seller.email}}
+    </div>
+    <div>
+        <label>Joined: </label>  {{model.seller.dateCreated | date}}
+    </div>
 
-    <label for="name">Name</label>
-    <p id="name">{{model.seller.firstName}} {{model.seller.lastName}}</p>
-
-    <label for="email">Contact</label>
-    <p id="email">{{model.seller.email}}</p>
 </p>
-
-<!--<div class="flexbox-container">-->
-    <!--<div>-->
-        <!--<button ng-click="model.updateUser()"-->
-                <!--form="myForm"-->
-                <!--ng-disabled="myForm.$invalid"-->
-                <!--class="btn btn-primary btn-block btn-sm">Update Profile</button>-->
-    <!--</div>-->
-    <!--<div>-->
-        <!--<button ng-click="model.addToBalance()" class="btn btn-success btn-block btn-sm">Deposit Cash</button>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div>-->
-    <!--<a ng-click="model.logout()" class="btn btn-danger btn-block btn-sm">Logout</a>-->
-    <!--<div class="flexbox-container">-->
-        <!--<div>-->
-            <!--<a href="#/profile/purchases" class="btn btn-link btn-sm">Purchase History</a>-->
-        <!--</div>-->
-        <!--<div style="text-align: right">-->
-            <!--<a ng-click="model.unregister()" class="btn btn-link btn-sm">Unregister</a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->

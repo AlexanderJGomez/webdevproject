@@ -29,7 +29,7 @@
             UserService.addToCart($rootScope.currentUser._id, vm.item._id)
                 .then(function(response) {
                     console.log(response.data);
-                    // $location.url("/profile/cart");
+                    $location.url("/profile/cart");
                 },
                 function(err) {
                     console.log(err.message);
