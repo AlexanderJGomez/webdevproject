@@ -51,11 +51,17 @@ module.exports = function() {
     }
     
     function search(searchParameter) {
-        return Item
-            .find(
-                { $text : { $search : searchParameter } },
-                { score : { $meta: "textScore" } }
-            )
-            //.sort({ score : { $meta : 'textScore' } });
+        return Item.textSearch(searchParameter, function(err, output) {
+            if(err)
+                return err;
+            console.log(output);
+            return output;
+        });
+
+            // .find(
+            //     { $text : { $search : searchParameter } },
+            //     { score : { $meta: "textScore" } }
+            // )
+            // .sort({ score : { $meta : 'textScore' } });
     }
 };

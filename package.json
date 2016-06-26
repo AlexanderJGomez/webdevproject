@@ -10,6 +10,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "mongoose": "^4.4.15",
+    "mongoose-text-search": "0.0.2",
     "multer": "^1.1.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
