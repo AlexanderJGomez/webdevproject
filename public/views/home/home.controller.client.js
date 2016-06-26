@@ -9,6 +9,17 @@
 
         function init() {
             vm.user = $rootScope.currentUser;
+
+            ItemService
+                .search("pants")
+                .then(
+                    function(response) {
+                        vm.allItems = response.data;
+                    },
+                    function(err) {
+                        console.log(err.message);
+                    }
+                );
         }
         init();
         vm.enter = enter;

@@ -91,3 +91,23 @@
     </div>
 </div>
 
+<div ng-show="model.allItems" class="image-grid">
+    <div ng-repeat="item in model.allItems">
+        <a href="#/item/{{item._id}}/view">
+            <div class="result">
+                <div class="result-image"
+                     style="width: 180px; height: 180px;
+                     background-image: url('{{item.image}}');
+                     background-size: auto 100%; background-color: rgba(0,0,0,0);
+                     background-position: center; overflow: hidden">
+                </div>
+                <a class="result-text" href="#/item/{{item._id}}/view">
+                    {{item.name}}
+                    <div class="result-price">
+                        ${{item.price}}
+                    </div>
+                </a>
+            </div>
+        </a>
+    </div>
+</div>
