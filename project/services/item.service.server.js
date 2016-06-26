@@ -71,7 +71,7 @@ module.exports = function(app, models) {
                 res.send(items);
             },
             function(err) {
-                res.status(401).send(err.data);
+                res.status(401).send(err);
             })
     }
 
