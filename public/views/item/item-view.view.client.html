@@ -42,8 +42,7 @@
 
 <img src="{{model.item.image}}" class="itemview-image"/>
 <p class="itemview-name"><b>{{model.item.name}}</b></p>
-<p class="itemview-seller">Seller: {{model.item.seller.username}}</p>
-<a href="#/user/{{model.item.seller._id}}" class="btn btn-link btn-sm">{{model.item.seller.username}}</a>
+<p class="itemview-seller">Seller: <a href="#/user/{{model.item.seller._id}}">{{model.item.seller.username}}</a></p>
 <p class="itemview-description">{{model.item.description}}</p>
 
 
@@ -62,14 +61,14 @@
 
 
 <!--Item added to cart-->
-<div ng-show="model.user && model.user.cart.indexOf(model.item._id) >= 0 ">
-    <div class="itemview-price-cart">
-        <div ng-show="!model.item.purchased" class="btn btn-info btn-md">
-            &#10004&nbsp
-            <span class="glyphicon glyphicon-shopping-cart"></span>
-        </div>
-    </div>
-</div>
+<!--<div ng-show="model.user && model.user.cart.indexOf(model.item._id) >= 0 ">-->
+    <!--<div class="itemview-price-cart">-->
+        <!--<div ng-show="!model.item.purchased" class="btn btn-info btn-md">-->
+            <!--&#10004&nbsp-->
+            <!--<span class="glyphicon glyphicon-shopping-cart"></span>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 <!--Not signed in-->
 <div ng-show="!model.user">
