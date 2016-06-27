@@ -108,7 +108,7 @@ module.exports = function(app, models) {
     }
 
     function uploadImage(req, res) {
-        console.log("In upload")
+        console.log("In upload");
 
         var itemId      = req.body.itemId;
         var myFile        = req.file;
@@ -121,9 +121,6 @@ module.exports = function(app, models) {
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
 
-        if(!originalname)
-            res.status(401).send("No image added")
-            return;
 
         newItem.image = "/uploads/"+filename;
         newItem.seller = req.body.seller;

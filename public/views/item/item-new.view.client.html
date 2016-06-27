@@ -65,7 +65,7 @@
 
 <div class="form-group">
     <form action="/api/upload" method="post" enctype="multipart/form-data">
-        <input  name="myFile"   type="file" class="form-control input-sm"/>
+        <input  name="myFile"   type="file" class="form-control input-sm" required/>
         <button type="submit"   class="btn btn-primary btn-block btn-sm">Upload Image</button>
         <input  name="seller" value="{{model.item.seller}}"   style="display: none"/>
         <input  name="name" value="{{model.item.name}}"   style="display: none"/>
